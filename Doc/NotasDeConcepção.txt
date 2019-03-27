@@ -1,0 +1,95 @@
+Gerar relatorio para: Fiados, Compras, da pesquisa do usuario e do estoque.
+
+Backup (BANCO DE DADOS)
+
+Setup
+
+Montar um XML automatico 
+
+Banco de dados : MySql
+
+Tudo encapsulado, ou seja, separado. (FrontEnd, BackEnd, BD)
+
+Fazer uma tabela do cardapio.
+
+Função F4 em qualquer campo do programa, ao apertar o F4, aparece a janela de pesquisa
+F4 > BUSCAR PRODUTOS.
+ 
+
+ESTUDO:
+
+XML PARA IMPRESSÃO DE FICHA 
+
+GERAR DOCUMENTO PDF DAS INFORMAÇÕES : 
+https://www.devmedia.com.br/criando-e-manipulando-arquivos-pdf-com-a-biblioteca-itextsharp-em-csharp/33392
+
+LIGAR O APLCATIVO COM SERVIDOR
+
+
+
+
+
+APLICAÇÃO DESKTOP=======================================================================================
+
+DEFINIR AS TELAS:
+CARREGAMENTO.
+LOGIN > ADIM, CANTINA DO IVANI 
+MENU > BACKUP, ACESSO A TUDO (TER VISÃO DE QUEM TA DEVENDO).
+VENDA > ONDE VAI FAZER O REGISTRO. (PERMITIR ACESSO A CONTA DO CLIENTE)
+ESTOQUE > LISTA, FILTROS E AS TODOS OS DADOS (RELATORIOS)
+CLIENTE > LISTA DOS FIADOS, VALOR, DIA, VENCIMENTO. (ALERTA DE DIA DE PAGAMENTO).
+FINACEIRO > LISTAR, FILTROS E AS TODOS OS DADOS (RELATORIOS)
+PRODUTO > LISTA, FILTROS E AS TODOS OS DADOS (RELATORIOS)
+
+ADMINISTRADOR >
+  
+FUNCIONALIDADES : 
+REGISTRAR VENDA, GERAR PDF, FICHA, XML, TOTEN,
+ 
+FRONTEND:
+LUANN DISSE QUE SABE COMO QUE VAI FAZER.
+
+
+
+APLICAÇÃO MOBILE==========================================================================================
+
+DEFINIR AS TELAS:
+LOGIN > ACESSO ADICIÇÃO DE CONTEUDO (FUNCIONARIOS)
+MENU > ACESSO A TUDO. (NOTIFICAÇÃO).
+
+TABELA COM PREÇOS E FOTOS:
+SALGADOS > 
+DOCES >
+BEBIDAS > QUENTES E FRIAS
+CARDAPIO DO DIA> PROMOÇÕES
+
+FUNCIONALIDADES: 
+EDITA, PUXAR OS DADOS DO BD (VALOR, STATUS DO PRODUTO E O PRODUTO).
+NOTIFICAÇÃO.  
+
+BANCO DE DADOS==========================================================================================
+
+TABELAS:
+FORNECEDOR,
+PRODUTO,
+ESTOQUE,
+ENTRADA E SAIDA,
+TRANSAÇÃO,
+CLIENTE
+
+
+
+
+
+
+NÃO ESCOPO
+
+CONTROLE PELO CELULAR.
+	SOBRE: PEDIDOS, ESTOQUE, FIADOS.
+IDEIA: VITORIA
+
+INCREMENTAÇÃO:
+
+MENU PARA GERENCIAMENTO 
+FAZER OUTRO APLICATIVO PARA O DONO DA CANTINA PODER VERIFITICAR O ESTOQUE, PRODUTO, ETC.. (CLIENTE SE INTERESSOU).
+CHAT PARA O APLICATIVO 
