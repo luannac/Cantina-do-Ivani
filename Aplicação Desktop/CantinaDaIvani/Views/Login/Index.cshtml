@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<form action="~/Login/Login" method="post" runat="server">
+    <input type="text" name="usuario" id="nickname" runat="server" />
+    <input type="text" name="Senha" id="password" runat="server" />
+    <input type="submit" value="Login" />
+</form>
