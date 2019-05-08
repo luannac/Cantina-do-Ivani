@@ -34,11 +34,11 @@ namespace Cantina_agil.Models
 
         public bool Login()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cantina_agilEntities"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BCD"].ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand comando = new SqlCommand("SELECT * FROM Atendente where nomeAtendente = @login AND senhaAtendente = @password AND ativoAtendente IS NULL or ativoAtendente != 0");
+                SqlCommand comando = new SqlCommand("SELECT * FROM Atendente where nomeAtendente = @login AND senhaAtendente = @password AND ativoAtendente IS NULL or ativoAtendente != 0",con);
                 comando.Parameters.AddWithValue("@login", loginAtendente);
                 comando.Parameters.AddWithValue("@password", senhaAtendente);
 

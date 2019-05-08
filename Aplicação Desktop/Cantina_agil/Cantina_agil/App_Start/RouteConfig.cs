@@ -16,7 +16,7 @@ namespace Cantina_agil
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Log", action = "Initial", id = UrlParameter.Optional }
+                defaults: new { controller = "Log", action = "Logar", id = UrlParameter.Optional }
             );
         }
     }

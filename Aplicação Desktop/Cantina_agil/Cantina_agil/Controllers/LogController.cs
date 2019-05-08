@@ -12,20 +12,19 @@ namespace CantinaAgil.Controllers
         private Cantina_agilEntities db = new Cantina_agilEntities();
         public static Atendente globalAtendente;
 
-        // GET: Log
-        public ActionResult Initial()
+        public ActionResult Logar()
         {
             return View();
         }
-        public ActionResult Logar(string login, string password)
-        {
-            Atendente atend = new Atendente();
-            atend.loginAtendente = login;
-            atend.senhaAtendente = password;
 
-            if (atend.Login())
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logar([Bind(Include = "loginAtendente,senhaAtendente")] Atendente atendente/*string login, string password*/)
+        {
+            if (ModelState.IsValid) { 
+            if (atendente.Login())
             {
-                Session["User"] = atend;
+                Session["User"] = atendente;
                 TempData["Msg"] = "Logado com Sucesso";
                 return RedirectToAction("Index", "menu");
             }
@@ -34,6 +33,8 @@ namespace CantinaAgil.Controllers
                 TempData["Msg"] = "Erro ao Logar";
                 return View();
             }
+            }
+            return View();
         }
         public ActionResult Logout()
         {
