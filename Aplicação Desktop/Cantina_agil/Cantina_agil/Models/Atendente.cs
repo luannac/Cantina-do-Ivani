@@ -11,6 +11,7 @@ namespace Cantina_agil.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Configuration;
     using System.Data.SqlClient;
 
@@ -24,17 +25,24 @@ namespace Cantina_agil.Models
     
         public int idAtendente { get; set; }
         public string nomeAtendente { get; set; }
+
+        [Display(Name = "Login")]
+        [Required(ErrorMessage = "Informe o nome do usuário", AllowEmptyStrings = false)]
         public string loginAtendente { get; set; }
+
+        [Required(ErrorMessage = "Informe a senha do usuário", AllowEmptyStrings = false)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         public string senhaAtendente { get; set; }
         public string emailAtendente { get; set; }
         public Nullable<bool> ativoAtendente { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sangria> Sangria { get; set; }
 
+        /*
         public bool Login()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BCD"].ConnectionString);
+            /*SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BCD"].ConnectionString);
             try
             {
                 con.Open();
@@ -45,13 +53,7 @@ namespace Cantina_agil.Models
                 SqlDataReader resposta = comando.ExecuteReader();
 
                 if (resposta.Read())
-                {/*
-                    LogController.globalAtendente.idAtendente = Convert.ToInt32(resposta["idAtendente"]);
-                    LogController.globalAtendente.nomeAtendente = resposta["nomeAtendente"].ToString();
-                    LogController.globalAtendente.loginAtendente = resposta["loginAtendente"].ToString();
-                    LogController.globalAtendente.senhaAtendente = resposta["senhaAtendente"].ToString();
-                    LogController.globalAtendente.emailAtendente = resposta["emailAtendente"].ToString();
-                    */
+                {
                     idAtendente = Convert.ToInt32(resposta["idAtendente"]);
                     nomeAtendente = resposta["nomeAtendente"].ToString();
                     emailAtendente = resposta["emailAtendente"].ToString();
@@ -63,15 +65,33 @@ namespace Cantina_agil.Models
                 }
 
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
-
+                
             }
             finally
             {
                 con.Close();
             }
-            return false;
-        }
+            return false;*/
+            
+            /*
+            // esta action trata o post (login)
+            if (ModelState.IsValid) //verifica se é válido
+            {
+                using (CadastroEntities dc = new CadastroEntities())
+                {
+                    var v = dc.Usuarios.Where(a => a.NomeUsuario.Equals(u.NomeUsuario) && a.Senha.Equals(u.Senha)).FirstOrDefault();
+                    if (v != null)
+                    {
+                        Session["usuarioLogadoID"] = v.Id.ToString();
+                        Session["nomeUsuarioLogado"] = v.NomeUsuario.ToString();
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            return View(u);
+            
+        }*/
     }
 }

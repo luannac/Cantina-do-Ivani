@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace CantinaAgil.Controllers
 {
     public class LogController : Controller
     {
         private Cantina_agilEntities db = new Cantina_agilEntities();
-        public static Atendente globalAtendente;
 
         public ActionResult Logar()
         {
@@ -19,8 +19,9 @@ namespace CantinaAgil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Logar([Bind(Include = "loginAtendente,senhaAtendente")] Atendente atendente/*string login, string password*/)
+        public ActionResult Login([Bind(Include = "loginAtendente,senhaAtendente")] Atendente atendente/*string login, string password*/)
         {
+            /*
             if (ModelState.IsValid) { 
             if (atendente.Login())
             {
@@ -34,8 +35,23 @@ namespace CantinaAgil.Controllers
                 return View();
             }
             }
-            return View();
+            return View();       */
+
+            if (ModelState.IsValid) //verifica se é válido
+            {
+                
+                var v = db.Atendente.Where(a => a.loginAtendente.Equals(atendente.nomeAtendente) && a.senhaAtendente.Equals(atendente.senhaAtendente));
+                if (v != null)
+                    {
+                        Session["User"] = v;
+                        //Session["usuarioLogadoID"] = v.Id.ToString();
+                        //Session["nomeUsuarioLogado"] = v.NomeUsuario.ToString();
+                        return RedirectToAction("Index", "Menu");
+                    }
+            }
+            return RedirectToAction("Logar", "Log");
         }
+    
         public ActionResult Logout()
         {
             Session["User"] = null;

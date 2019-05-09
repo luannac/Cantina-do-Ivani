@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 namespace Cantina_agil.Controllers
 {
+   
+   [Authorize] 
     public class MenuController : Controller
     {
-        // GET: Menu
+        // GET: Menu   
         public ActionResult Index()
         {
             return View();

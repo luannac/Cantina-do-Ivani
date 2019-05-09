@@ -7,7 +7,7 @@
 
 <h2>Logar</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Login", "Log", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
