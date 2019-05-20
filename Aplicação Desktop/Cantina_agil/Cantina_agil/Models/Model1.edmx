@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Cantina_agilModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Atendente">
+          <Key>
+            <PropertyRef Name="idAtendente" />
+          </Key>
+          <Property Name="idAtendente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeAtendente" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="loginAtendente" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="senhaAtendente" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="emailAtendente" Type="varchar" MaxLength="45" />
+          <Property Name="ativoAtendente" Type="bit" />
+          <Property Name="cpf" Type="varchar" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeCliente" Type="varchar" MaxLength="60" />
+          <Property Name="relacaoSenai" Type="varchar" MaxLength="60" />
+          <Property Name="emailCliente" Type="varchar" MaxLength="45" />
+          <Property Name="foneCliente" Type="varchar" MaxLength="10" />
+          <Property Name="celularCliente" Type="varchar" MaxLength="11" />
+          <Property Name="rgCliente" Type="varchar" MaxLength="9" />
+          <Property Name="cpfCliente" Type="varchar" MaxLength="11" />
+          <Property Name="obsCliente" Type="varchar" MaxLength="100" />
+          <Property Name="ativoCliente" Type="bit" />
+        </EntityType>
+        <EntityType Name="EntradaSaida">
+          <Key>
+            <PropertyRef Name="idEntradaSaida" />
+          </Key>
+          <Property Name="idEntradaSaida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataEntradaSaida" Type="date" Nullable="false" />
+          <Property Name="quantEntradaSaida" Type="int" Nullable="false" />
+          <Property Name="idEstoque_EntradaSaida" Type="int" Nullable="false" />
+          <Property Name="ativoEntradaSaida" Type="bit" />
+        </EntityType>
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="idEstoque" />
+          </Key>
+          <Property Name="idEstoque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantidade" Type="int" Nullable="false" />
+          <Property Name="idProduto_Estoque" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="idProduto" />
+          </Key>
+          <Property Name="idProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeProduto" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="valor" Type="money" Nullable="false" />
+          <Property Name="ativoProduto" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sangria">
+          <Key>
+            <PropertyRef Name="idSangria" />
+          </Key>
+          <Property Name="idSangria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="abertura" Type="date" Nullable="false" />
+          <Property Name="fechamento" Type="date" Nullable="false" />
+          <Property Name="valorSangria" Type="money" Nullable="false" />
+          <Property Name="idAtendente_Sangria" Type="int" Nullable="false" />
+          <Property Name="ativoSangria" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sugestao">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sugestao" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Transacao">
+          <Key>
+            <PropertyRef Name="idTransacao" />
+          </Key>
+          <Property Name="idTransacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valorTransacao" Type="money" Nullable="false" />
+          <Property Name="dataTransacao" Type="date" Nullable="false" />
+          <Property Name="pago" Type="bit" Nullable="false" />
+          <Property Name="dataPagamento" Type="date" />
+          <Property Name="idEntradaSaida_Transacao" Type="int" Nullable="false" />
+          <Property Name="idCliente_Transacao" Type="int" />
+          <Property Name="ativoTransacao" Type="bit" />
+        </EntityType>
+        <Association Name="FK_EntradaSaida_Estoque">
+          <End Role="Estoque" Type="Self.Estoque" Multiplicity="1" />
+          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estoque">
+              <PropertyRef Name="idEstoque" />
+            </Principal>
+            <Dependent Role="EntradaSaida">
+              <PropertyRef Name="idEstoque_EntradaSaida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estoque_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Estoque" Type="Self.Estoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="idProduto" />
+            </Principal>
+            <Dependent Role="Estoque">
+              <PropertyRef Name="idProduto_Estoque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sangria_Atendente">
+          <End Role="Atendente" Type="Self.Atendente" Multiplicity="1" />
+          <End Role="Sangria" Type="Self.Sangria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atendente">
+              <PropertyRef Name="idAtendente" />
+            </Principal>
+            <Dependent Role="Sangria">
+              <PropertyRef Name="idAtendente_Sangria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="idCliente_Transacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_EntradaSaida">
+          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="1" />
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntradaSaida">
+              <PropertyRef Name="idEntradaSaida" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="idEntradaSaida_Transacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Cantina_agilModelStoreContainer">
+          <EntitySet Name="Atendente" EntityType="Self.Atendente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntradaSaida" EntityType="Self.EntradaSaida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estoque" EntityType="Self.Estoque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sangria" EntityType="Self.Sangria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sugestao" EntityType="Self.Sugestao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transacao" EntityType="Self.Transacao" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EntradaSaida_Estoque" Association="Self.FK_EntradaSaida_Estoque">
+            <End Role="Estoque" EntitySet="Estoque" />
+            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estoque_Produto" Association="Self.FK_Estoque_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Estoque" EntitySet="Estoque" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sangria_Atendente" Association="Self.FK_Sangria_Atendente">
+            <End Role="Atendente" EntitySet="Atendente" />
+            <End Role="Sangria" EntitySet="Sangria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_Cliente" Association="Self.FK_Transacao_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_EntradaSaida" Association="Self.FK_Transacao_EntradaSaida">
+            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cantina_agilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Atendente">
+          <Key>
+            <PropertyRef Name="idAtendente" />
+          </Key>
+          <Property Name="idAtendente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeAtendente" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loginAtendente" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senhaAtendente" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailAtendente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ativoAtendente" Type="Boolean" />
+          <NavigationProperty Name="Sangria" Relationship="Self.FK_Sangria_Atendente" FromRole="Atendente" ToRole="Sangria" />
+          <Property Name="cpf" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeCliente" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="relacaoSenai" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="emailCliente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="foneCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="celularCliente" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="rgCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="cpfCliente" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="obsCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ativoCliente" Type="Boolean" />
+          <NavigationProperty Name="Transacao" Relationship="Self.FK_Transacao_Cliente" FromRole="Cliente" ToRole="Transacao" />
+        </EntityType>
+        <EntityType Name="EntradaSaida">
+          <Key>
+            <PropertyRef Name="idEntradaSaida" />
+          </Key>
+          <Property Name="idEntradaSaida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataEntradaSaida" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="quantEntradaSaida" Type="Int32" Nullable="false" />
+          <Property Name="idEstoque_EntradaSaida" Type="Int32" Nullable="false" />
+          <Property Name="ativoEntradaSaida" Type="Boolean" />
+          <NavigationProperty Name="Estoque" Relationship="Self.FK_EntradaSaida_Estoque" FromRole="EntradaSaida" ToRole="Estoque" />
+          <NavigationProperty Name="Transacao" Relationship="Self.FK_Transacao_EntradaSaida" FromRole="EntradaSaida" ToRole="Transacao" />
+        </EntityType>
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="idEstoque" />
+          </Key>
+          <Property Name="idEstoque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantidade" Type="Int32" Nullable="false" />
+          <Property Name="idProduto_Estoque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EntradaSaida" Relationship="Self.FK_EntradaSaida_Estoque" FromRole="Estoque" ToRole="EntradaSaida" />
+          <NavigationProperty Name="Produto" Relationship="Self.FK_Estoque_Produto" FromRole="Estoque" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="idProduto" />
+          </Key>
+          <Property Name="idProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeProduto" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ativoProduto" Type="Boolean" />
+          <NavigationProperty Name="Estoque" Relationship="Self.FK_Estoque_Produto" FromRole="Produto" ToRole="Estoque" />
+        </EntityType>
+        <EntityType Name="Sangria">
+          <Key>
+            <PropertyRef Name="idSangria" />
+          </Key>
+          <Property Name="idSangria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="abertura" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechamento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="valorSangria" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="idAtendente_Sangria" Type="Int32" Nullable="false" />
+          <Property Name="ativoSangria" Type="Boolean" />
+          <NavigationProperty Name="Atendente" Relationship="Self.FK_Sangria_Atendente" FromRole="Sangria" ToRole="Atendente" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Transacao">
+          <Key>
+            <PropertyRef Name="idTransacao" />
+          </Key>
+          <Property Name="idTransacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valorTransacao" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="dataTransacao" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pago" Type="Boolean" Nullable="false" />
+          <Property Name="dataPagamento" Type="DateTime" Precision="0" />
+          <Property Name="idEntradaSaida_Transacao" Type="Int32" Nullable="false" />
+          <Property Name="idCliente_Transacao" Type="Int32" />
+          <Property Name="ativoTransacao" Type="Boolean" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Transacao_Cliente" FromRole="Transacao" ToRole="Cliente" />
+          <NavigationProperty Name="EntradaSaida" Relationship="Self.FK_Transacao_EntradaSaida" FromRole="Transacao" ToRole="EntradaSaida" />
+        </EntityType>
+        <Association Name="FK_Sangria_Atendente">
+          <End Role="Atendente" Type="Self.Atendente" Multiplicity="1" />
+          <End Role="Sangria" Type="Self.Sangria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atendente">
+              <PropertyRef Name="idAtendente" />
+            </Principal>
+            <Dependent Role="Sangria">
+              <PropertyRef Name="idAtendente_Sangria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="idCliente_Transacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradaSaida_Estoque">
+          <End Role="Estoque" Type="Self.Estoque" Multiplicity="1" />
+          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estoque">
+              <PropertyRef Name="idEstoque" />
+            </Principal>
+            <Dependent Role="EntradaSaida">
+              <PropertyRef Name="idEstoque_EntradaSaida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_EntradaSaida">
+          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="1" />
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntradaSaida">
+              <PropertyRef Name="idEntradaSaida" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="idEntradaSaida_Transacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estoque_Produto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Estoque" Type="Self.Estoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="idProduto" />
+            </Principal>
+            <Dependent Role="Estoque">
+              <PropertyRef Name="idProduto_Estoque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Cantina_agilEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Atendente" EntityType="Self.Atendente" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="EntradaSaida" EntityType="Self.EntradaSaida" />
+          <EntitySet Name="Estoque" EntityType="Self.Estoque" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" />
+          <EntitySet Name="Sangria" EntityType="Self.Sangria" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Transacao" EntityType="Self.Transacao" />
+          <AssociationSet Name="FK_Sangria_Atendente" Association="Self.FK_Sangria_Atendente">
+            <End Role="Atendente" EntitySet="Atendente" />
+            <End Role="Sangria" EntitySet="Sangria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_Cliente" Association="Self.FK_Transacao_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradaSaida_Estoque" Association="Self.FK_EntradaSaida_Estoque">
+            <End Role="Estoque" EntitySet="Estoque" />
+            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_EntradaSaida" Association="Self.FK_Transacao_EntradaSaida">
+            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estoque_Produto" Association="Self.FK_Estoque_Produto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Estoque" EntitySet="Estoque" />
+          </AssociationSet>
+          <EntitySet Name="Sugestao" EntityType="Cantina_agilModel.Sugestao" />
+        </EntityContainer>
+        <EntityType Name="Sugestao">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sugestao1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Cantina_agilModelStoreContainer" CdmEntityContainer="Cantina_agilEntities">
+          <EntitySetMapping Name="Atendente">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Atendente">
+              <MappingFragment StoreEntitySet="Atendente">
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="idAtendente" ColumnName="idAtendente" />
+                <ScalarProperty Name="nomeAtendente" ColumnName="nomeAtendente" />
+                <ScalarProperty Name="loginAtendente" ColumnName="loginAtendente" />
+                <ScalarProperty Name="senhaAtendente" ColumnName="senhaAtendente" />
+                <ScalarProperty Name="emailAtendente" ColumnName="emailAtendente" />
+                <ScalarProperty Name="ativoAtendente" ColumnName="ativoAtendente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="nomeCliente" ColumnName="nomeCliente" />
+                <ScalarProperty Name="relacaoSenai" ColumnName="relacaoSenai" />
+                <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
+                <ScalarProperty Name="foneCliente" ColumnName="foneCliente" />
+                <ScalarProperty Name="celularCliente" ColumnName="celularCliente" />
+                <ScalarProperty Name="rgCliente" ColumnName="rgCliente" />
+                <ScalarProperty Name="cpfCliente" ColumnName="cpfCliente" />
+                <ScalarProperty Name="obsCliente" ColumnName="obsCliente" />
+                <ScalarProperty Name="ativoCliente" ColumnName="ativoCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntradaSaida">
+            <EntityTypeMapping TypeName="Cantina_agilModel.EntradaSaida">
+              <MappingFragment StoreEntitySet="EntradaSaida">
+                <ScalarProperty Name="idEntradaSaida" ColumnName="idEntradaSaida" />
+                <ScalarProperty Name="dataEntradaSaida" ColumnName="dataEntradaSaida" />
+                <ScalarProperty Name="quantEntradaSaida" ColumnName="quantEntradaSaida" />
+                <ScalarProperty Name="idEstoque_EntradaSaida" ColumnName="idEstoque_EntradaSaida" />
+                <ScalarProperty Name="ativoEntradaSaida" ColumnName="ativoEntradaSaida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estoque">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Estoque">
+              <MappingFragment StoreEntitySet="Estoque">
+                <ScalarProperty Name="idEstoque" ColumnName="idEstoque" />
+                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+                <ScalarProperty Name="idProduto_Estoque" ColumnName="idProduto_Estoque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produto">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Produto">
+              <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+                <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="ativoProduto" ColumnName="ativoProduto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sangria">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Sangria">
+              <MappingFragment StoreEntitySet="Sangria">
+                <ScalarProperty Name="idSangria" ColumnName="idSangria" />
+                <ScalarProperty Name="abertura" ColumnName="abertura" />
+                <ScalarProperty Name="fechamento" ColumnName="fechamento" />
+                <ScalarProperty Name="valorSangria" ColumnName="valorSangria" />
+                <ScalarProperty Name="idAtendente_Sangria" ColumnName="idAtendente_Sangria" />
+                <ScalarProperty Name="ativoSangria" ColumnName="ativoSangria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Cantina_agilModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transacao">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Transacao">
+              <MappingFragment StoreEntitySet="Transacao">
+                <ScalarProperty Name="idTransacao" ColumnName="idTransacao" />
+                <ScalarProperty Name="valorTransacao" ColumnName="valorTransacao" />
+                <ScalarProperty Name="dataTransacao" ColumnName="dataTransacao" />
+                <ScalarProperty Name="pago" ColumnName="pago" />
+                <ScalarProperty Name="dataPagamento" ColumnName="dataPagamento" />
+                <ScalarProperty Name="idEntradaSaida_Transacao" ColumnName="idEntradaSaida_Transacao" />
+                <ScalarProperty Name="idCliente_Transacao" ColumnName="idCliente_Transacao" />
+                <ScalarProperty Name="ativoTransacao" ColumnName="ativoTransacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sugestao">
+            <EntityTypeMapping TypeName="Cantina_agilModel.Sugestao">
+              <MappingFragment StoreEntitySet="Sugestao">
+                <ScalarProperty Name="sugestao1" ColumnName="sugestao" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

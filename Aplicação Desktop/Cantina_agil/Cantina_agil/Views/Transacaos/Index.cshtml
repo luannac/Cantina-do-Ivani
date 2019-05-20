@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Cantina_agil.Models.Transacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.valorTransacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataTransacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataPagamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ativoTransacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntradaSaida.idEntradaSaida)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorTransacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataTransacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataPagamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ativoTransacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.nomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntradaSaida.idEntradaSaida)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTransacao }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTransacao }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTransacao })
+        </td>
+    </tr>
+}
+
+</table>

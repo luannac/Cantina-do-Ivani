@@ -1,0 +1,40 @@
+﻿
+.col-xl-10, .col-lg-12, .col-md-9{
+    margin-top:170px;
+}
+
+.col-md-10{
+padding-right:10px;
+width:600px;
+margin-left:10px;
+}
+
+.form-group{
+  margin-left:40px;
+}
+
+.card{
+    background-color: #a1740ccc ;
+
+}
+
+.control-label{
+
+    color:#f5f5f5;
+}
+
+.h4{
+    color:#f5f5f5;
+}
+
+.esqueceusenha{
+    color:#f5f5f5;
+   
+}
+
+.esqueceusenha:hover{
+    color:rosybrown;
+     text-decoration:none;
+}
+
+ 
