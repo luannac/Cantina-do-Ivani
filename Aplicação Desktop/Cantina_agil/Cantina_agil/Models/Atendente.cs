@@ -11,30 +11,9 @@ namespace Cantina_agil.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.SqlClient;
-
+    
     public partial class Atendente
     {
-        public Atendente(SqlDataReader leitor)
-        {
-            idAtendente = Convert.ToInt32(leitor["idAtendente"]);
-            nomeAtendente = leitor["nomeAtendente"].ToString();
-            loginAtendente = leitor["loginAtendente"].ToString();
-            senhaAtendente = leitor["senhaAtendente"].ToString();
-            emailAtendente = leitor["emailAtendente"].ToString();
-
-            if (Convert.ToInt32(leitor["ativoAtendente"]) == 0)
-            {
-                ativoAtendente = false;
-            }
-            else
-            {
-                ativoAtendente = true;
-            }
-
-            cpf = leitor["cpf"].ToString();
-        }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Atendente()
         {
@@ -51,6 +30,5 @@ namespace Cantina_agil.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sangria> Sangria { get; set; }
-
     }
 }

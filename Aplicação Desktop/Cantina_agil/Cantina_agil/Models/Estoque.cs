@@ -27,6 +27,5 @@ namespace Cantina_agil.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EntradaSaida> EntradaSaida { get; set; }
         public virtual Produto Produto { get; set; }
-
     }
 }

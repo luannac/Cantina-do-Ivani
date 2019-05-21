@@ -11,7 +11,12 @@
 </p>
 
 <form method="post" action=@Url.Action("Index","Produtos")>
-    <input type="text" name="stringDePesquisa" placeholder="Nome" />
+
+    <input type="number" name="codigo" placeholder="Código" />
+    <input type="text" name="nome" placeholder="Nome Produto" />
+    <input type="number" name="valorMin" placeholder="Valor Mínimo" />
+    <input type="number" name="valorMax" placeholder="Valor Máximo" />
+    <input type="checkbox" name="deletado"/>Mostrar Deletados
     <input type="submit" value="Pesquisar"/>
 </form>
 

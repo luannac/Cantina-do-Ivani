@@ -146,17 +146,17 @@ C:\igor marques\ProjetoInteiro\OneDrive-2019-05-10\Cantina_agil\Cantina_agil\obj
 C:\igor marques\ProjetoInteiro\OneDrive-2019-05-10\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
 C:\igor marques\ProjetoInteiro\OneDrive-2019-05-10\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
 C:\Luann\Projeto 3 Termo\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache
-C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\csc.exe
-C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\VBCSCompiler.exe
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\System.Reflection.Metadata.dll
+C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\csc.exe
+C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\System.Collections.Immutable.dll
-C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\System.Reflection.Metadata.dll
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\vbc.exe
-C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\VBCSCompiler.exe
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\VBCSCompiler.exe.config
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Cantina_agil.dll.config
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Cantina_agil.dll

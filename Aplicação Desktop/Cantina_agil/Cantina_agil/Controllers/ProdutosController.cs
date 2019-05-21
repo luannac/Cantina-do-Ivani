@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Cantina_agil.Models;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Cantina_agil.Controllers
 {
@@ -15,12 +17,122 @@ namespace Cantina_agil.Controllers
         private Cantina_agilEntities db = new Cantina_agilEntities();
 
         // GET: Produtos
-        public ActionResult Index(string codigo,string nome,double valor,bool deletado)
+        public ActionResult Index()
         {
-            var produtos = db.Produto.Where(s => s.nomeProduto.Contains(nome));
-            var produtos1 = db.Produto.Find(codigo);
-            var produtos2 = db.Produto.Where(s => s.ativoProduto == deletado);
+            return View(db.Produto.Where(a =>  a.ativoProduto == null));
+        }
 
+        [HttpPost]
+        public ActionResult Index(int? codigo,string nome,double? valorMax,double? valorMin,bool? deletado)
+        {
+            if (codigo != null)
+            {
+                return View(db.Produto.Where(a => a.idProduto.Equals((int)codigo)));
+            }
+            //if(nome==null && val)
+            if (deletado == null)
+            {
+                deletado = false;
+            }
+
+            
+
+            //Tratamento do Campos Valores
+
+                if (valorMax == null)
+                {
+                    valorMax = (double)db.Produto.Max(a => a.valor);
+                }
+                if(valorMin == null)
+                {
+                    valorMin = (double)db.Produto.Min(a => a.valor);
+
+                }          
+
+            IQueryable<Produto> v=null ;
+            //Tratamento do campo Deletado
+            if ((bool)deletado)
+            {
+                v = db.Produto.Where(a => a.nomeProduto.Contains(nome) && (double)a.valor > valorMin && (double)a.valor < valorMax);
+            }
+            else
+            {
+                v = db.Produto.Where(a => a.nomeProduto.Contains(nome)&& (double)a.valor > valorMin && (double)a.valor < valorMax && a.ativoProduto==false );
+            }
+
+
+                if (v != null)
+                {
+                    return View(v.ToList());
+                }
+
+
+                /*
+                if (codigo != null)
+                {
+                    return View(db.Produto.Where(a => a.idProduto.Equals((int)codigo)));
+                }
+                if (deletado == null)
+                {
+                    deletado = false;
+                }
+
+                SqlConnection con =
+                    new SqlConnection(ConfigurationManager.ConnectionStrings["BCD"].ConnectionString);
+
+                string comando = "select * from Produto where LOWER(nomeProduto ) like @nome or UPPER(nomeProduto ) like @nome1"
+                                    +" UNION "
+                                    +"select* from Produto where valor > @vMin and valor < @vMax";
+
+                //Tratamento do Campos Valores
+                if (valorMin == null || valorMax == null)
+                {
+                    if (valorMax == null )
+                    {
+                        valorMax = (double)db.Produto.Max(a => a.valor);
+                    }
+                    else
+                    {
+                        valorMin = (double) db.Produto.Min(a => a.valor);
+
+                    }
+                }
+
+
+                //Tratamento do campo Deletado
+
+                if ((bool)deletado)
+                {
+                    comando.Union(" UNION select * from Produto where ativoProduto = 0");
+                }
+                else
+                {
+                    comando.Union(" UNION select * from Produto where ativoProduto = 1 or ativoProduto = null");
+                }
+                try
+                {
+                    con.Open();
+                    SqlCommand query =
+                        new SqlCommand(comando, con);
+                    query.Parameters.AddWithValue("@nome", nome);
+                    query.Parameters.AddWithValue("@nome1", nome);
+                    query.Parameters.AddWithValue("@vMin", valorMin);
+                    query.Parameters.AddWithValue("@vMax", valorMax+1);
+                    var leitor = query.ExecuteReader();
+
+                    if (leitor != null)
+                    {
+                        return View(leitor);
+                    }
+
+                }
+                catch (Exception e)
+                {
+
+                }
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();*/
+                return View(db.Produto.Where(a => a.ativoProduto.Equals(1) || a.ativoProduto != null));
 
             /*
             var produtos = db.Produto.Where(s => s.nomeProduto.Contains(stringDePesquisa));
