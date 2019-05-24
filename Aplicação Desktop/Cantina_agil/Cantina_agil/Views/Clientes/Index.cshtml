@@ -5,78 +5,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href=@Url.Action("Create","Clientes") class="btn btn-primary" data-toggle="button">
+        Criar um Novo
+    </a>
+   
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nomeCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.relacaoSenai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.emailCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.foneCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.celularCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rgCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cpfCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.obsCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ativoCliente)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.relacaoSenai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.foneCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.celularCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rgCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpfCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obsCliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nomeCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.relacaoSenai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.emailCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.foneCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.celularCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rgCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cpfCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.obsCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ativoCliente)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCliente }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCliente }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCliente })
-        </td>
-    </tr>
-}
-
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomeCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.relacaoSenai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.foneCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.celularCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rgCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cpfCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsCliente)
+                </td>
+                <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Clientes", new { id = item.idCliente })>
+                            Editar
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Details", "Clientes", new { id = item.idCliente })>
+                            Detalhes
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Clientes", new { id = item.idCliente })>
+                            Deletar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
 </table>

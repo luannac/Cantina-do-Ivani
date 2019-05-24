@@ -29,14 +29,12 @@ namespace CantinaAgil.Controllers
             {
                 
                 var v = db.Atendente.Where(a => a.loginAtendente.Equals(atendente.loginAtendente) && a.senhaAtendente.Equals(atendente.senhaAtendente));
+
                 foreach (var item in v)
                 {
                     Atendente ate = (Atendente) item;
-                    if (ate.senhaAtendente.Equals(atendente.senhaAtendente))
-                    {
-                        Session["User"] = ate;
-                        return RedirectToAction("Index", "Menu");
-                    }
+                       Session["User"] = ate;
+                       return RedirectToAction("Index", "Menu");
                 }
             }
             return RedirectToAction("Logar", "Log");

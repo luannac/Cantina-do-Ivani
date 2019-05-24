@@ -55,9 +55,10 @@
             <PropertyRef Name="idProduto" />
           </Key>
           <Property Name="idProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nomeProduto" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="nomeProduto" Type="text" />
           <Property Name="valor" Type="money" Nullable="false" />
           <Property Name="ativoProduto" Type="bit" />
+          <Property Name="tipo" Type="varchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="Sangria">
           <Key>
@@ -93,7 +94,7 @@
           </Key>
           <Property Name="idTransacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="valorTransacao" Type="money" Nullable="false" />
-          <Property Name="dataTransacao" Type="date" Nullable="false" />
+          <Property Name="dataTransacao" Type="date" />
           <Property Name="pago" Type="bit" Nullable="false" />
           <Property Name="dataPagamento" Type="date" />
           <Property Name="idEntradaSaida_Transacao" Type="int" Nullable="false" />
@@ -251,10 +252,11 @@
             <PropertyRef Name="idProduto" />
           </Key>
           <Property Name="idProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nomeProduto" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomeProduto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="ativoProduto" Type="Boolean" />
           <NavigationProperty Name="Estoque" Relationship="Self.FK_Estoque_Produto" FromRole="Produto" ToRole="Estoque" />
+          <Property Name="tipo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Sangria">
           <Key>
@@ -284,7 +286,7 @@
           </Key>
           <Property Name="idTransacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="valorTransacao" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="dataTransacao" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dataTransacao" Type="DateTime" Precision="0" />
           <Property Name="pago" Type="Boolean" Nullable="false" />
           <Property Name="dataPagamento" Type="DateTime" Precision="0" />
           <Property Name="idEntradaSaida_Transacao" Type="Int32" Nullable="false" />
@@ -449,6 +451,7 @@
           <EntitySetMapping Name="Produto">
             <EntityTypeMapping TypeName="Cantina_agilModel.Produto">
               <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="idProduto" ColumnName="idProduto" />
                 <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
                 <ScalarProperty Name="valor" ColumnName="valor" />

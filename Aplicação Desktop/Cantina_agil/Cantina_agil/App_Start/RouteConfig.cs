@@ -17,8 +17,8 @@ namespace Cantina_agil
                 name: "Default",
                 url: "{controller}/{action}/{id}",
 
-                defaults: new { controller = "Menu", action = "Index", id = UrlParameter.Optional }
-                //defaults: new { controller = "Log", action = "Logar", id = UrlParameter.Optional }
+                //defaults: new { controller = "Menu", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Log", action = "Logar", id = UrlParameter.Optional }
             );
         }
     }

@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
-    <h4>Atendente</h4>
+    <h4>Atendentes</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -44,14 +44,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ativoAtendente)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ativoAtendente)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.cpf)
         </dt>
 
@@ -62,6 +54,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idAtendente }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button" class="btn btn-primary" data-toggle="button" >
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idAtendente }) 
+    </button> 
+    <a href=@Url.Action("Index", "Atendentes") class="btn btn-primary" data-toggle="button">
+        Voltar para Lista
+    </a> 
+ 
 </p>

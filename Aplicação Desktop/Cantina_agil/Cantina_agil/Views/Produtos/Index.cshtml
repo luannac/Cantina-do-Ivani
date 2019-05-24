@@ -14,10 +14,10 @@
 
     <input type="number" name="codigo" placeholder="Código" />
     <input type="text" name="nome" placeholder="Nome Produto" />
-    <input type="number" name="valorMin" placeholder="Valor Mínimo" />
-    <input type="number" name="valorMax" placeholder="Valor Máximo" />
-    <input type="checkbox" name="deletado"/>Mostrar Deletados
-    <input type="submit" value="Pesquisar"/>
+    <input type="number" step="any" name="valorMin" placeholder="Valor Mínimo" />
+    <input type="number" step="any" name="valorMax" placeholder="Valor Máximo" />
+    <input id="deletado" type="checkbox" name="deletado" value="true" /><label>Mostrar Deletados</label>
+    <input type="submit" value="Pesquisar" />
 </form>
 
 <table class="table">
@@ -34,23 +34,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-        @Html.DisplayFor(modelItem => item.idProduto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nomeProduto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idProduto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idProduto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idProduto })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idProduto }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idProduto }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idProduto })
+            </td>
+        </tr>
+    }
 
 </table>

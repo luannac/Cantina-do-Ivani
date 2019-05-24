@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,18 +37,18 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-            <!-- Nova Página - Clientes -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="@Url.Action("Index", "Clientes")" data-toggle="collapse">
-                    <i class="far fa-hand-point-right"></i>
-                    <span>Clientes</span>
-                </a>
-            </li>
             <!-- Nova Página - Atendentes -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="@Url.Action("Index","Atendentes")" data-toggle="collapse">
-                    <i class="far fa-hand-point-right"></i>
+                <a class="nav-link collapsed" href=@Url.Action("Index", "Atendentes")>
+                    <i class="fas fa-hand-point-right"></i>
                     <span>Atendentes</span>
+                </a>
+            </li>
+            <!-- Nova Página - Clientes -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=@Url.Action("Index","Clientes")>
+                 <i class="fas fa-hand-point-right"></i>
+                    <span>Clientes</span>
                 </a>
             </li>
             <!-- Divider -->
@@ -58,16 +58,16 @@
             </div>
             <!-- Nova Página - Produtos  -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href=@Url.Action("Index", "Produtos") data-toggle="collapse" >
-                    <i class="far fa-hand-point-right"></i>
+                <a class="nav-link collapsed" href=@Url.Action("Index", "Produtos")>
+                    <i class="fas fa-hand-point-right"></i>
                     <span>Produtos</span>
                 </a>
                 
             </li>
             <!-- Nova Página - Sangria  -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href=@Url.Action("Index", "Sangrias") data-toggle="collapse">
-                    <i class="far fa-hand-point-right"></i>
+                <a class="nav-link collapsed" href=@Url.Action("Index", "Sangrias")>
+                    <i class="fas fa-hand-point-right"></i>
                     <span>Sangria</span>
                 </a>
             </li>
@@ -76,32 +76,28 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-            <!-- Nova Página - Estoque -->
+            <!-- Nova Página - Vendas -->
             <li class="nav-item ">
-                <a class="nav-link collapsed" href="@Url.Action("Index","Vendas")" data-toggle="collapse">
-                    <i class="far fa-hand-point-right"></i>
+                <a class="nav-link collapsed" href=@Url.Action("Pdv", "Vendas")>
+                    <i class="fas fa-hand-point-right"></i>
                     <span>Vendas</span>
                 </a>
             </li>
             
-            <!-- Nova Página - Estoque -->
+            <!-- Nova Página - Compra à Prazo -->
             <li class="nav-item ">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse">
-                    <i class="far fa-hand-point-right"></i>
+                <a class="nav-link collapsed" href="#">
+                    <i class="fas fa-hand-point-right"></i>
                     <span>Compra à Prazo</span>
                 </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
             <!-- Logout - Sair -->
             <li class="nav-item">
                 <a class="nav-link sair " href=@Url.Action("Logar","Log")>
-                    <button type="button" class="btn btn-danger">Sair</button>
+                    <span>Sair</span>
                 </a>
             </li>
         </ul>
@@ -112,35 +108,11 @@
             <div id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="far fa-hand-point-right"></i>
-                    </button>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-                        
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href=@Url.Action("Index","Sugestoes") id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
@@ -168,9 +140,6 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         @RenderBody()
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2019</span>
-                        </div>
                     </div>
                 </footer>
                 <!-- End of Footer -->
@@ -198,47 +167,3 @@
         
 </body>
 </html>
-
-
-
-
-
-<!--<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>/@@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="container body-content">
-        <hr />
-        <footer>
-           
-        </footer>
-    </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
-</html>
-    -->

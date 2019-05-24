@@ -1679,9 +1679,12 @@
     <Content Include="Content\Custom\vendor\jquery\jquery.min.js" />
     <Content Include="Content\Custom\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\Custom\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\fomatationRecuperarSenha.css" />
+    <Content Include="Content\formatationAlterarSenha.css" />
     <Content Include="Content\formatationCadastrar.css" />
     <Content Include="Content\formatationLogin.css" />
     <Content Include="Content\formatationSite.css" />
+    <Content Include="Content\formatationSobre.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.min.js" />
@@ -3265,6 +3268,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Android.asmx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -3603,6 +3607,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AndroidController.cs" />
     <Compile Include="Controllers\AtendentesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\EstoquesController.cs" />
@@ -3657,6 +3662,11 @@
     <Compile Include="Models\Transacao.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Vendas.cs" />
+    <Compile Include="Models\Android.asmx.cs">
+      <DependentUpon>Android.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3692,11 +3702,6 @@
     <Content Include="Views\Produtos\Details.cshtml" />
     <Content Include="Views\Produtos\Edit.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
-    <Content Include="Views\Estoques\Create.cshtml" />
-    <Content Include="Views\Estoques\Delete.cshtml" />
-    <Content Include="Views\Estoques\Details.cshtml" />
-    <Content Include="Views\Estoques\Edit.cshtml" />
-    <Content Include="Views\Estoques\Index.cshtml" />
     <Content Include="Views\Sangrias\Create.cshtml" />
     <Content Include="Views\Sangrias\Delete.cshtml" />
     <Content Include="Views\Sangrias\Details.cshtml" />
@@ -3723,6 +3728,12 @@
     <Content Include="Views\Atendentes\Edit.cshtml" />
     <Content Include="Views\Atendentes\Index.cshtml" />
     <Content Include="Views\Log\AlterarSenha.cshtml" />
+    <Content Include="Views\Estoques\Create.cshtml" />
+    <Content Include="Views\Estoques\Delete.cshtml" />
+    <Content Include="Views\Estoques\Details.cshtml" />
+    <Content Include="Views\Estoques\Edit.cshtml" />
+    <Content Include="Views\Estoques\Index.cshtml" />
+    <Content Include="Views\Vendas\Pdv.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3732,6 +3743,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Android\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

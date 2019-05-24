@@ -5,10 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Sugestões</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href=@Url.Action("Create","Sugestoes") class="btn btn-primary" data-toggle="button">
+        Criar um Novo
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -24,9 +26,15 @@
             @Html.DisplayFor(modelItem => item.sugestao1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codigo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codigo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codigo })
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Sugestoes", new { id = item.codigo })>
+                    Editar
+                </a>
+                <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Sugestoes", new { id = item.codigo })>
+                    Deletar
+                </a>
+            </div>
+            
         </td>
     </tr>
 }

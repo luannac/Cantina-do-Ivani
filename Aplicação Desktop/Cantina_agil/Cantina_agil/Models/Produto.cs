@@ -24,6 +24,7 @@ namespace Cantina_agil.Models
         public string nomeProduto { get; set; }
         public decimal valor { get; set; }
         public Nullable<bool> ativoProduto { get; set; }
+        public string tipo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Estoque> Estoque { get; set; }

@@ -9,39 +9,42 @@
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image">
+                        <img class="img" src="~/Image/atendente.png" />
+                    </div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Crie uma Conta!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Crie sua Conta!</h1>
                             </div>
                             <form class="user">
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0 form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0 row esquerda">
                                         <label>Nome</label>
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName">
-                                   
+                                        <input type="text" class="form-control" id="exampleFirstName">
+
                                         <label>Usuario</label>
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
-                                   
+                                        <input type="text" class="form-control" id="exampleLastName">
+
                                         <label>E-mail</label>
-                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Digite seu Email">
-                               
-                                        <label>Senha</label>
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Digite uma senha">
-                                
-                                        <label>Senha</label>
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Digite a senha novamente">
+                                        <input type="email" class="form-control" id="exampleInputEmail">
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0 row">
+                                        <label class="senha">Senha</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword">
+
+                                        <label class="senha">Senha novamente</label>
+                                        <input type="password" class="form-control " id="exampleRepeatPassword">
                                     </div>
                                 </div>
                                 <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
+                                    cadastrar
                                 </a>
                             </form>
 
                             <div class="text-center">
                                 <!--/@@Html.ActionLink("Já possui uma Conta?", "Logar", "Log")<a class="small" href="login.html">Already have an account? Login!</a>-->
-                               
+
                             </div>
                         </div>
                     </div>

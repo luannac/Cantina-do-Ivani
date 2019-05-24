@@ -21,6 +21,12 @@ namespace Cantina_agil.Controllers
             return View(transacao.ToList());
         }
 
+        public ActionResult Pdv()
+        {
+            return View();
+        }
+
+
         // GET: Vendas/Details/5
         public ActionResult Details(int? id)
         {

@@ -50,9 +50,10 @@
       <PropertyRef Name="idProduto" />
     </Key>
     <Property Name="idProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nomeProduto" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="nomeProduto" Type="text" />
     <Property Name="valor" Type="money" Nullable="false" />
     <Property Name="ativoProduto" Type="bit" />
+    <Property Name="tipo" Type="varchar" MaxLength="2" />
   </EntityType>
   <EntityType Name="Sangria">
     <Key>
@@ -88,7 +89,7 @@
     </Key>
     <Property Name="idTransacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="valorTransacao" Type="money" Nullable="false" />
-    <Property Name="dataTransacao" Type="date" Nullable="false" />
+    <Property Name="dataTransacao" Type="date" />
     <Property Name="pago" Type="bit" Nullable="false" />
     <Property Name="dataPagamento" Type="date" />
     <Property Name="idEntradaSaida_Transacao" Type="int" Nullable="false" />

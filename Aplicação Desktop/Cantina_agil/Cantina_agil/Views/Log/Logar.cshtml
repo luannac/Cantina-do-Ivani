@@ -38,7 +38,7 @@
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.senhaAtendente, "Senha", htmlAttributes: new { @class = "control-label " })
                                                     <div>
-                                                        @Html.EditorFor(model => model.senhaAtendente, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.PasswordFor(model => model.senhaAtendente, new { htmlAttributes = new { @class = "form-control secury" } })
                                                         @Html.ValidationMessageFor(model => model.senhaAtendente, "", new { @class = "text-danger" })
                                                    </div>
                                                 </div>
@@ -50,10 +50,6 @@
                                                         <div class="text-center">
                                                             <a class="esqueceusenha" href=@Url.Action("RecuperarSenha", "Log")>Esqueceu sua Senha?</a>
                                                         </div>
-                                                        <!-- <div class="text-center">
-                                                            <a href="~/Views/Account/Registrar.cshtml">Criar uma Conta</a>
-                                                            /@@Html.ActionLink("Criar Conta", "Cadastrar", "Log")
-                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </form>

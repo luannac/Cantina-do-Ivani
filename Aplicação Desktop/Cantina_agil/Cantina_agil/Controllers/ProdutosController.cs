@@ -19,7 +19,7 @@ namespace Cantina_agil.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(db.Produto.Where(a =>  a.ativoProduto == null));
+            return View(db.Produto.Where(a =>  a.ativoProduto != false));
         }
 
         [HttpPost]
@@ -28,14 +28,7 @@ namespace Cantina_agil.Controllers
             if (codigo != null)
             {
                 return View(db.Produto.Where(a => a.idProduto.Equals((int)codigo)));
-            }
-            //if(nome==null && val)
-            if (deletado == null)
-            {
-                deletado = false;
-            }
-
-            
+            }          
 
             //Tratamento do Campos Valores
 
@@ -45,9 +38,14 @@ namespace Cantina_agil.Controllers
                 }
                 if(valorMin == null)
                 {
-                    valorMin = (double)db.Produto.Min(a => a.valor);
+                    valorMin = 0;
+                }
 
-                }          
+            if (deletado == null)
+            {
+                deletado = false;
+            }
+
 
             IQueryable<Produto> v=null ;
             //Tratamento do campo Deletado
@@ -57,7 +55,7 @@ namespace Cantina_agil.Controllers
             }
             else
             {
-                v = db.Produto.Where(a => a.nomeProduto.Contains(nome)&& (double)a.valor > valorMin && (double)a.valor < valorMax && a.ativoProduto==false );
+                v = db.Produto.Where(a => a.nomeProduto.Contains(nome)&& (double)a.valor > valorMin && (double)a.valor < valorMax  && a.ativoProduto!=false || a.ativoProduto==null);
             }
 
 

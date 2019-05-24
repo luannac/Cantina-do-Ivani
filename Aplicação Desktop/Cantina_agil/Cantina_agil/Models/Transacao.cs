@@ -16,7 +16,7 @@ namespace Cantina_agil.Models
     {
         public int idTransacao { get; set; }
         public decimal valorTransacao { get; set; }
-        public System.DateTime dataTransacao { get; set; }
+        public Nullable<System.DateTime> dataTransacao { get; set; }
         public bool pago { get; set; }
         public Nullable<System.DateTime> dataPagamento { get; set; }
         public int idEntradaSaida_Transacao { get; set; }

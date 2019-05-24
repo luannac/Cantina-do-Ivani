@@ -53,6 +53,7 @@
     <EntitySetMapping Name="Produto">
       <EntityTypeMapping TypeName="Cantina_agilModel.Produto">
         <MappingFragment StoreEntitySet="Produto">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
           <ScalarProperty Name="idProduto" ColumnName="idProduto" />
           <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
           <ScalarProperty Name="valor" ColumnName="valor" />
