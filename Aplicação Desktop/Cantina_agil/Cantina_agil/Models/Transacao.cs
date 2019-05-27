@@ -14,16 +14,22 @@ namespace Cantina_agil.Models
     
     public partial class Transacao
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Transacao()
+        {
+            this.EntradaSaida = new HashSet<EntradaSaida>();
+        }
+    
         public int idTransacao { get; set; }
         public decimal valorTransacao { get; set; }
         public Nullable<System.DateTime> dataTransacao { get; set; }
         public bool pago { get; set; }
         public Nullable<System.DateTime> dataPagamento { get; set; }
-        public int idEntradaSaida_Transacao { get; set; }
         public Nullable<int> idCliente_Transacao { get; set; }
         public Nullable<bool> ativoTransacao { get; set; }
     
         public virtual Cliente Cliente { get; set; }
-        public virtual EntradaSaida EntradaSaida { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EntradaSaida> EntradaSaida { get; set; }
     }
 }

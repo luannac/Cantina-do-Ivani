@@ -3662,7 +3662,7 @@
     <Compile Include="Models\Transacao.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Vendas.cs" />
+    <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\Android.asmx.cs">
       <DependentUpon>Android.asmx</DependentUpon>
       <SubType>Component</SubType>

@@ -16,9 +16,9 @@
         <AssociationConnector Association="Cantina_agilModel.FK_Sangria_Atendente" ManuallyRouted="false" />
         <AssociationConnector Association="Cantina_agilModel.FK_Transacao_Cliente" ManuallyRouted="false" />
         <AssociationConnector Association="Cantina_agilModel.FK_EntradaSaida_Estoque" ManuallyRouted="false" />
-        <AssociationConnector Association="Cantina_agilModel.FK_Transacao_EntradaSaida" ManuallyRouted="false" />
         <AssociationConnector Association="Cantina_agilModel.FK_Estoque_Produto" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Cantina_agilModel.Sugestao" Width="1.5" PointX="6.625" PointY="4.375" />
+        <AssociationConnector Association="Cantina_agilModel.id_Transacao" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

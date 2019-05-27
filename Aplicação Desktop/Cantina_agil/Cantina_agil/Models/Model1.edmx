@@ -41,6 +41,7 @@
           <Property Name="quantEntradaSaida" Type="int" Nullable="false" />
           <Property Name="idEstoque_EntradaSaida" Type="int" Nullable="false" />
           <Property Name="ativoEntradaSaida" Type="bit" />
+          <Property Name="id_Transacao" Type="int" />
         </EntityType>
         <EntityType Name="Estoque">
           <Key>
@@ -97,7 +98,6 @@
           <Property Name="dataTransacao" Type="date" />
           <Property Name="pago" Type="bit" Nullable="false" />
           <Property Name="dataPagamento" Type="date" />
-          <Property Name="idEntradaSaida_Transacao" Type="int" Nullable="false" />
           <Property Name="idCliente_Transacao" Type="int" />
           <Property Name="ativoTransacao" Type="bit" />
         </EntityType>
@@ -149,15 +149,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transacao_EntradaSaida">
-          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="1" />
-          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+        <Association Name="id_Transacao">
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="0..1" />
+          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EntradaSaida">
-              <PropertyRef Name="idEntradaSaida" />
+            <Principal Role="Transacao">
+              <PropertyRef Name="idTransacao" />
             </Principal>
-            <Dependent Role="Transacao">
-              <PropertyRef Name="idEntradaSaida_Transacao" />
+            <Dependent Role="EntradaSaida">
+              <PropertyRef Name="id_Transacao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -187,9 +187,9 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Transacao" EntitySet="Transacao" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transacao_EntradaSaida" Association="Self.FK_Transacao_EntradaSaida">
-            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+          <AssociationSet Name="id_Transacao" Association="Self.id_Transacao">
             <End Role="Transacao" EntitySet="Transacao" />
+            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -235,7 +235,8 @@
           <Property Name="idEstoque_EntradaSaida" Type="Int32" Nullable="false" />
           <Property Name="ativoEntradaSaida" Type="Boolean" />
           <NavigationProperty Name="Estoque" Relationship="Self.FK_EntradaSaida_Estoque" FromRole="EntradaSaida" ToRole="Estoque" />
-          <NavigationProperty Name="Transacao" Relationship="Self.FK_Transacao_EntradaSaida" FromRole="EntradaSaida" ToRole="Transacao" />
+          <Property Name="id_Transacao" Type="Int32" />
+          <NavigationProperty Name="Transacao" Relationship="Cantina_agilModel.id_Transacao" FromRole="EntradaSaida" ToRole="Transacao" />
         </EntityType>
         <EntityType Name="Estoque">
           <Key>
@@ -289,11 +290,10 @@
           <Property Name="dataTransacao" Type="DateTime" Precision="0" />
           <Property Name="pago" Type="Boolean" Nullable="false" />
           <Property Name="dataPagamento" Type="DateTime" Precision="0" />
-          <Property Name="idEntradaSaida_Transacao" Type="Int32" Nullable="false" />
           <Property Name="idCliente_Transacao" Type="Int32" />
           <Property Name="ativoTransacao" Type="Boolean" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_Transacao_Cliente" FromRole="Transacao" ToRole="Cliente" />
-          <NavigationProperty Name="EntradaSaida" Relationship="Self.FK_Transacao_EntradaSaida" FromRole="Transacao" ToRole="EntradaSaida" />
+          <NavigationProperty Name="EntradaSaida" Relationship="Cantina_agilModel.id_Transacao" FromRole="Transacao" ToRole="EntradaSaida" />
         </EntityType>
         <Association Name="FK_Sangria_Atendente">
           <End Role="Atendente" Type="Self.Atendente" Multiplicity="1" />
@@ -331,18 +331,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transacao_EntradaSaida">
-          <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="1" />
-          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EntradaSaida">
-              <PropertyRef Name="idEntradaSaida" />
-            </Principal>
-            <Dependent Role="Transacao">
-              <PropertyRef Name="idEntradaSaida_Transacao" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Estoque_Produto">
           <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
           <End Role="Estoque" Type="Self.Estoque" Multiplicity="*" />
@@ -376,15 +364,15 @@
             <End Role="Estoque" EntitySet="Estoque" />
             <End Role="EntradaSaida" EntitySet="EntradaSaida" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transacao_EntradaSaida" Association="Self.FK_Transacao_EntradaSaida">
-            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
-            <End Role="Transacao" EntitySet="Transacao" />
-          </AssociationSet>
           <AssociationSet Name="FK_Estoque_Produto" Association="Self.FK_Estoque_Produto">
             <End Role="Produto" EntitySet="Produto" />
             <End Role="Estoque" EntitySet="Estoque" />
           </AssociationSet>
           <EntitySet Name="Sugestao" EntityType="Cantina_agilModel.Sugestao" />
+          <AssociationSet Name="id_Transacao" Association="Cantina_agilModel.id_Transacao">
+            <End Role="Transacao" EntitySet="Transacao" />
+            <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Sugestao">
           <Key>
@@ -393,6 +381,18 @@
           <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="sugestao1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="id_Transacao">
+          <End Type="Cantina_agilModel.Transacao" Role="Transacao" Multiplicity="0..1" />
+          <End Type="Cantina_agilModel.EntradaSaida" Role="EntradaSaida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transacao">
+              <PropertyRef Name="idTransacao" />
+            </Principal>
+            <Dependent Role="EntradaSaida">
+              <PropertyRef Name="id_Transacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -431,6 +431,7 @@
           <EntitySetMapping Name="EntradaSaida">
             <EntityTypeMapping TypeName="Cantina_agilModel.EntradaSaida">
               <MappingFragment StoreEntitySet="EntradaSaida">
+                <ScalarProperty Name="id_Transacao" ColumnName="id_Transacao" />
                 <ScalarProperty Name="idEntradaSaida" ColumnName="idEntradaSaida" />
                 <ScalarProperty Name="dataEntradaSaida" ColumnName="dataEntradaSaida" />
                 <ScalarProperty Name="quantEntradaSaida" ColumnName="quantEntradaSaida" />
@@ -490,7 +491,6 @@
                 <ScalarProperty Name="dataTransacao" ColumnName="dataTransacao" />
                 <ScalarProperty Name="pago" ColumnName="pago" />
                 <ScalarProperty Name="dataPagamento" ColumnName="dataPagamento" />
-                <ScalarProperty Name="idEntradaSaida_Transacao" ColumnName="idEntradaSaida_Transacao" />
                 <ScalarProperty Name="idCliente_Transacao" ColumnName="idCliente_Transacao" />
                 <ScalarProperty Name="ativoTransacao" ColumnName="ativoTransacao" />
               </MappingFragment>

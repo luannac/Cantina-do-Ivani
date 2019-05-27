@@ -13,6 +13,7 @@ namespace Cantina_agil.Controllers
     public class VendasController : Controller
     {
         private Cantina_agilEntities db = new Cantina_agilEntities();
+        private Venda venda;
 
         // GET: Vendas
         public ActionResult Index()
@@ -65,7 +66,7 @@ namespace Cantina_agil.Controllers
             }
 
             ViewBag.idCliente_Transacao = new SelectList(db.Cliente, "idCliente", "nomeCliente", transacao.idCliente_Transacao);
-            ViewBag.idEntradaSaida_Transacao = new SelectList(db.EntradaSaida, "idEntradaSaida", "idEntradaSaida", transacao.idEntradaSaida_Transacao);
+            ViewBag.idEntradaSaida_Transacao = new SelectList(db.EntradaSaida, "idEntradaSaida", "idEntradaSaida");
             return View(transacao);
         }
 
@@ -82,7 +83,7 @@ namespace Cantina_agil.Controllers
                 return HttpNotFound();
             }
             ViewBag.idCliente_Transacao = new SelectList(db.Cliente, "idCliente", "nomeCliente", transacao.idCliente_Transacao);
-            ViewBag.idEntradaSaida_Transacao = new SelectList(db.EntradaSaida, "idEntradaSaida", "idEntradaSaida", transacao.idEntradaSaida_Transacao);
+            ViewBag.idEntradaSaida_Transacao = new SelectList(db.EntradaSaida, "idEntradaSaida", "idEntradaSaida");
             return View(transacao);
         }
 
@@ -100,7 +101,7 @@ namespace Cantina_agil.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idCliente_Transacao = new SelectList(db.Cliente, "idCliente", "nomeCliente", transacao.idCliente_Transacao);
-            ViewBag.idEntradaSaida_Transacao = new SelectList(db.EntradaSaida, "idEntradaSaida", "idEntradaSaida", transacao.idEntradaSaida_Transacao);
+            ViewBag.idEntradaSaida_Transacao = new SelectList(db.EntradaSaida, "idEntradaSaida", "idEntradaSaida");
             return View(transacao);
         }
 

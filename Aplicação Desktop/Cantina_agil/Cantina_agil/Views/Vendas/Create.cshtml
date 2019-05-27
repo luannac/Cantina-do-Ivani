@@ -50,14 +50,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idEntradaSaida_Transacao, "idEntradaSaida_Transacao", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idEntradaSaida_Transacao", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idEntradaSaida_Transacao, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.idCliente_Transacao, "idCliente_Transacao", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idCliente_Transacao", null, htmlAttributes: new { @class = "form-control" })
