@@ -182,3 +182,4 @@ C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.He
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Mvc.xml
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
+C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache

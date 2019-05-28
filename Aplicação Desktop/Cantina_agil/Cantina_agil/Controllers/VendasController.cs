@@ -19,7 +19,7 @@ namespace Cantina_agil.Controllers
         public ActionResult Index()
         {
             var transacao = db.Transacao.Include(t => t.Cliente).Include(t => t.EntradaSaida);
-            return View(transacao.ToList());
+            return View();
         }
 
         public ActionResult Pdv()

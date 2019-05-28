@@ -19,7 +19,12 @@ namespace Cantina_agil.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(db.Produto.Where(a =>  a.ativoProduto != false));
+            /* https://www.eduardopires.net.br/2013/08/asp-net-mvc-view-model-pattern-quando-e-como-utilizar/ */
+            // Initialization.  
+            CommonProdutoViewModel model = new CommonProdutoViewModel();
+            model.Produtos = db.Produto.Where(a => a.ativoProduto != false);
+            model.Estoque = db.Estoque;
+            return View(model);
         }
 
         [HttpPost]

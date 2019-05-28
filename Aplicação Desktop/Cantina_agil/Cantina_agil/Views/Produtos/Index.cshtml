@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cantina_agil.Models.Produto>
+﻿@model IEnumerable<Cantina_agil.Models.CommonProdutoViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -29,7 +29,7 @@
             Nome do Produto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.valor)
+            @Html.DisplayNameFor(model => model.Produtos.SingleOrDefault().valor)
         </th>
         <th></th>
     </tr>
