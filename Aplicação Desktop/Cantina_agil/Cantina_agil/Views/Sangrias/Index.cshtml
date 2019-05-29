@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Cantina_agil.Models.Sangria>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sangria</h2>
+
+<p>
+    <a href=@Url.Action("Create","Sangrias") class="btn btn-primary" data-toggle="button">
+        Criar um Novo
+    </a>
+</p>
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.abertura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valorSangria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Atendente.nomeAtendente)
+        </th>
+        <th></th>
+    </tr>
+        </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.abertura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorSangria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Atendente.nomeAtendente)
+            </td>
+            <td>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Sangrias", new { id = item.idSangria })>
+                        Editar
+                    </a>
+                    <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Details", "Sangrias", new { id = item.idSangria })>
+                        Detalhes
+                    </a>
+                    <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Sangrias", new { id = item.idSangria })>
+                        Deletar
+                    </a>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

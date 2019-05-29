@@ -33,5 +33,6 @@ namespace Cantina_agil.Models
         public virtual DbSet<Sangria> Sangria { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Transacao> Transacao { get; set; }
+        public virtual DbSet<Sugestao> Sugestao { get; set; }
     }
 }

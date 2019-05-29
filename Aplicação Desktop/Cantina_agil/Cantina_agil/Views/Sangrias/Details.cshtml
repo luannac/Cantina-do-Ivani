@@ -1,0 +1,54 @@
+﻿@model Cantina_agil.Models.Sangria
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Sangria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.abertura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.abertura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorSangria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorSangria)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Atendente.nomeAtendente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atendente.nomeAtendente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+      <button type="button" class="btn btn-primary" data-toggle="button" >
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idSangria })
+        </button>
+        <a href=@Url.Action("Index","Sangrias") class="btn btn-primary" data-toggle="button">
+            Voltar para Lista
+        </a>
+</p>

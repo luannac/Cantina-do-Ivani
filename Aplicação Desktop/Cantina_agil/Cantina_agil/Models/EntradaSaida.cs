@@ -14,20 +14,23 @@ namespace Cantina_agil.Models
     
     public partial class EntradaSaida
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EntradaSaida()
-        {
-            this.Transacao = new HashSet<Transacao>();
-        }
-    
         public int idEntradaSaida { get; set; }
         public System.DateTime dataEntradaSaida { get; set; }
         public int quantEntradaSaida { get; set; }
         public int idEstoque_EntradaSaida { get; set; }
         public Nullable<bool> ativoEntradaSaida { get; set; }
+        public Nullable<int> id_Transacao { get; set; }
     
         public virtual Estoque Estoque { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transacao> Transacao { get; set; }
+        public virtual Transacao Transacao { get; set; }
+
+        public EntradaSaida(DateTime now, int quant, int idEstoque, int idTransacao)
+        {
+            this.dataEntradaSaida = now;
+            this.quantEntradaSaida = quant;
+            this.idEstoque_EntradaSaida = idEstoque;
+            this.id_Transacao = idTransacao;
+            ativoEntradaSaida = true;
+        }
     }
 }

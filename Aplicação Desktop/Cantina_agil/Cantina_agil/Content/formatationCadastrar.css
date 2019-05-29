@@ -1,0 +1,40 @@
+﻿.form-group{
+    padding-left:20px;
+
+}
+
+.row{
+    background-color:lightblue;
+    color:blue;
+}
+
+.form-control-user{
+    margin-right:10px;
+}
+
+label{
+    margin-top:20px;
+}
+
+.btn-primary{
+    background-color:#12BCE2;
+    border-color:#12BCE2;
+    margin-top:60px;
+    width:300px;
+    margin-left:90px;
+}
+
+.esquerda{
+    margin-right:45px;
+}
+
+.senha{
+    margin-bottom:-30px;
+}
+
+.img{
+    margin-top:120px;
+    margin-left:80px;
+}
+
+

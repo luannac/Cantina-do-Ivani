@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Cantina_agil.Models.Atendente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Atendentes</h2>
+
+<p>
+    <a href=@Url.Action("Create","Atendentes") class="btn btn-primary" data-toggle="button">
+       Criar um Novo
+    </a>
+ 
+</p>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeAtendente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loginAtendente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.senhaAtendente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailAtendente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpf)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomeAtendente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.loginAtendente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.senhaAtendente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailAtendente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cpf)
+                </td>
+                <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Atendentes", new { id = item.idAtendente })>
+                           Editar
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Details", "Atendentes", new { id = item.idAtendente })>
+                            Detalhes
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Atendentes", new { id = item.idAtendente })>
+                            Deletar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+          
+        }
+
+</table>

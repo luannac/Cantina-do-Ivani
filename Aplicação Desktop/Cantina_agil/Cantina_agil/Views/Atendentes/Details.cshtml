@@ -1,0 +1,64 @@
+﻿@model Cantina_agil.Models.Atendente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Atendentes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeAtendente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeAtendente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loginAtendente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginAtendente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senhaAtendente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senhaAtendente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailAtendente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailAtendente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-primary" data-toggle="button" >
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idAtendente }) 
+    </button> 
+    <a href=@Url.Action("Index", "Atendentes") class="btn btn-primary" data-toggle="button">
+        Voltar para Lista
+    </a> 
+ 
+</p>

@@ -1,0 +1,75 @@
+﻿@model Cantina_agil.Models.Transacao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.valorTransacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorTransacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataTransacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataTransacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ativoTransacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ativoTransacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.nomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntradaSaida.idEntradaSaida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntradaSaida.idEntradaSaida)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTransacao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,6 +11,7 @@
     <Property Name="emailAtendente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ativoAtendente" Type="Boolean" />
     <NavigationProperty Name="Sangria" Relationship="Self.FK_Sangria_Atendente" FromRole="Atendente" ToRole="Sangria" />
+    <Property Name="cpf" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Cliente">
     <Key>
@@ -38,7 +39,8 @@
     <Property Name="idEstoque_EntradaSaida" Type="Int32" Nullable="false" />
     <Property Name="ativoEntradaSaida" Type="Boolean" />
     <NavigationProperty Name="Estoque" Relationship="Self.FK_EntradaSaida_Estoque" FromRole="EntradaSaida" ToRole="Estoque" />
-    <NavigationProperty Name="Transacao" Relationship="Self.FK_Transacao_EntradaSaida" FromRole="EntradaSaida" ToRole="Transacao" />
+    <Property Name="id_Transacao" Type="Int32" />
+    <NavigationProperty Name="Transacao" Relationship="Cantina_agilModel.id_Transacao" FromRole="EntradaSaida" ToRole="Transacao" />
   </EntityType>
   <EntityType Name="Estoque">
     <Key>
@@ -55,10 +57,11 @@
       <PropertyRef Name="idProduto" />
     </Key>
     <Property Name="idProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nomeProduto" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nomeProduto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="ativoProduto" Type="Boolean" />
     <NavigationProperty Name="Estoque" Relationship="Self.FK_Estoque_Produto" FromRole="Produto" ToRole="Estoque" />
+    <Property Name="tipo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Sangria">
     <Key>
@@ -88,14 +91,13 @@
     </Key>
     <Property Name="idTransacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="valorTransacao" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="dataTransacao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dataTransacao" Type="DateTime" Precision="0" />
     <Property Name="pago" Type="Boolean" Nullable="false" />
     <Property Name="dataPagamento" Type="DateTime" Precision="0" />
-    <Property Name="idEntradaSaida_Transacao" Type="Int32" Nullable="false" />
     <Property Name="idCliente_Transacao" Type="Int32" />
     <Property Name="ativoTransacao" Type="Boolean" />
     <NavigationProperty Name="Cliente" Relationship="Self.FK_Transacao_Cliente" FromRole="Transacao" ToRole="Cliente" />
-    <NavigationProperty Name="EntradaSaida" Relationship="Self.FK_Transacao_EntradaSaida" FromRole="Transacao" ToRole="EntradaSaida" />
+    <NavigationProperty Name="EntradaSaida" Relationship="Cantina_agilModel.id_Transacao" FromRole="Transacao" ToRole="EntradaSaida" />
   </EntityType>
   <Association Name="FK_Sangria_Atendente">
     <End Role="Atendente" Type="Self.Atendente" Multiplicity="1" />
@@ -133,18 +135,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Transacao_EntradaSaida">
-    <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="1" />
-    <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EntradaSaida">
-        <PropertyRef Name="idEntradaSaida" />
-      </Principal>
-      <Dependent Role="Transacao">
-        <PropertyRef Name="idEntradaSaida_Transacao" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Estoque_Produto">
     <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
     <End Role="Estoque" Type="Self.Estoque" Multiplicity="*" />
@@ -178,13 +168,33 @@
       <End Role="Estoque" EntitySet="Estoque" />
       <End Role="EntradaSaida" EntitySet="EntradaSaida" />
     </AssociationSet>
-    <AssociationSet Name="FK_Transacao_EntradaSaida" Association="Self.FK_Transacao_EntradaSaida">
-      <End Role="EntradaSaida" EntitySet="EntradaSaida" />
-      <End Role="Transacao" EntitySet="Transacao" />
-    </AssociationSet>
     <AssociationSet Name="FK_Estoque_Produto" Association="Self.FK_Estoque_Produto">
       <End Role="Produto" EntitySet="Produto" />
       <End Role="Estoque" EntitySet="Estoque" />
     </AssociationSet>
+    <EntitySet Name="Sugestao" EntityType="Cantina_agilModel.Sugestao" />
+    <AssociationSet Name="id_Transacao" Association="Cantina_agilModel.id_Transacao">
+      <End Role="Transacao" EntitySet="Transacao" />
+      <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Sugestao">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sugestao1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="id_Transacao">
+    <End Type="Cantina_agilModel.Transacao" Role="Transacao" Multiplicity="0..1" />
+    <End Type="Cantina_agilModel.EntradaSaida" Role="EntradaSaida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transacao">
+        <PropertyRef Name="idTransacao" />
+      </Principal>
+      <Dependent Role="EntradaSaida">
+        <PropertyRef Name="id_Transacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

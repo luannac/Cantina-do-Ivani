@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Cantina_agil.Models.Sugestao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sugestões</h2>
+
+<p>
+    <a href=@Url.Action("Create","Sugestoes") class="btn btn-primary" data-toggle="button">
+        Criar um Novo
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sugestao1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sugestao1)
+        </td>
+        <td>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Sugestoes", new { id = item.codigo })>
+                    Editar
+                </a>
+                <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Sugestoes", new { id = item.codigo })>
+                    Deletar
+                </a>
+            </div>
+            
+        </td>
+    </tr>
+}
+
+</table>

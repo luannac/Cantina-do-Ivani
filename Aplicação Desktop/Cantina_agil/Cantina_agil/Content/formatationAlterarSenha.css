@@ -1,0 +1,18 @@
+﻿.button{
+    margin-top:10px;
+    margin-left:80px;
+    width:12rem !important;
+    background-color: #CE880D;
+    border-color:#CE880D;
+    color:#ffffff;
+}
+.button:hover{
+   background-color: #6F4804;
+  border-color: #6F4804;
+}
+
+
+label{
+    margin-top:10px;
+    color:#ffffff;
+}

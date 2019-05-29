@@ -1,0 +1,31 @@
+﻿@model Cantina_agil.Models.Sugestao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Sugestões</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sugestao1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sugestao1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-primary" data-toggle="button">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.codigo })
+    </button>
+    <a href=@Url.Action("Index","Sugestoes") class="btn btn-primary" data-toggle="button">
+        Voltar para Lista
+    </a>
+</p>

@@ -1,0 +1,35 @@
+﻿@model Cantina_agil.Models.Sugestao
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deletar</h2>
+
+<h3>Tem certeza que deseja Deletar?</h3>
+<div>
+    <h4>Sugestões</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sugestao1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sugestao1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            <a href=@Url.Action("Index","Sugestoes") class="btn btn-primary" data-toggle="button">
+                Voltar para Lista
+            </a>
+        </div>
+    }
+</div>

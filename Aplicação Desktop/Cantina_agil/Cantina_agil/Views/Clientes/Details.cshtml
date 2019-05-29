@@ -1,0 +1,87 @@
+﻿@model Cantina_agil.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.relacaoSenai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.relacaoSenai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foneCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foneCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.celularCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celularCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rgCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rgCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpfCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpfCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.obsCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.obsCliente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-primary" data-toggle="button" >
+       @Html.ActionLink("Editar", "Edit", new { id = Model.idCliente }) 
+    </button>
+    <a href=@Url.Action("Index","Clientes") class="btn btn-primary" data-toggle="button">
+        Voltar para Lista
+    </a> 
+</p>

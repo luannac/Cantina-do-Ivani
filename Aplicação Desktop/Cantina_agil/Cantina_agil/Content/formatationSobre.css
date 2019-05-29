@@ -1,0 +1,25 @@
+﻿.row{
+    margin-left:100px;
+    text-align:justify;
+    font-size:20pt;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height:2.5;
+    width:80% ;
+}
+
+img{
+    margin-left:50px;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+hr{
+    height:1px;
+    width:70%;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+h3{
+ margin-left:300px;
+}

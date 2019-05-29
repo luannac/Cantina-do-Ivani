@@ -10919,7 +10919,7 @@ a:focus {
 }
 
 .topbar {
-  height: 4.375rem;
+  height: 3.200rem;
 }
 
 .topbar #sidebarToggleTop {
@@ -10945,7 +10945,7 @@ a:focus {
 
 .topbar .topbar-divider {
   width: 0;
-  border-right: 1px solid #e3e6f0;
+  border-right: 0.5px solid #e3e6f0;
   height: calc(4.375rem - 2rem);
   margin: auto 1rem;
 }

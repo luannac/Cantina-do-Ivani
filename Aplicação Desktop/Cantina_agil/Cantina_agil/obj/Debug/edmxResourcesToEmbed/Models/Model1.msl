@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Atendente">
       <EntityTypeMapping TypeName="Cantina_agilModel.Atendente">
         <MappingFragment StoreEntitySet="Atendente">
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
           <ScalarProperty Name="idAtendente" ColumnName="idAtendente" />
           <ScalarProperty Name="nomeAtendente" ColumnName="nomeAtendente" />
           <ScalarProperty Name="loginAtendente" ColumnName="loginAtendente" />
@@ -32,6 +33,7 @@
     <EntitySetMapping Name="EntradaSaida">
       <EntityTypeMapping TypeName="Cantina_agilModel.EntradaSaida">
         <MappingFragment StoreEntitySet="EntradaSaida">
+          <ScalarProperty Name="id_Transacao" ColumnName="id_Transacao" />
           <ScalarProperty Name="idEntradaSaida" ColumnName="idEntradaSaida" />
           <ScalarProperty Name="dataEntradaSaida" ColumnName="dataEntradaSaida" />
           <ScalarProperty Name="quantEntradaSaida" ColumnName="quantEntradaSaida" />
@@ -52,6 +54,7 @@
     <EntitySetMapping Name="Produto">
       <EntityTypeMapping TypeName="Cantina_agilModel.Produto">
         <MappingFragment StoreEntitySet="Produto">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
           <ScalarProperty Name="idProduto" ColumnName="idProduto" />
           <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
           <ScalarProperty Name="valor" ColumnName="valor" />
@@ -90,9 +93,16 @@
           <ScalarProperty Name="dataTransacao" ColumnName="dataTransacao" />
           <ScalarProperty Name="pago" ColumnName="pago" />
           <ScalarProperty Name="dataPagamento" ColumnName="dataPagamento" />
-          <ScalarProperty Name="idEntradaSaida_Transacao" ColumnName="idEntradaSaida_Transacao" />
           <ScalarProperty Name="idCliente_Transacao" ColumnName="idCliente_Transacao" />
           <ScalarProperty Name="ativoTransacao" ColumnName="ativoTransacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sugestao">
+      <EntityTypeMapping TypeName="Cantina_agilModel.Sugestao">
+        <MappingFragment StoreEntitySet="Sugestao">
+          <ScalarProperty Name="sugestao1" ColumnName="sugestao" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
