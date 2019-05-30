@@ -21,10 +21,7 @@ namespace Cantina_agil.Controllers
         {
             /* https://www.eduardopires.net.br/2013/08/asp-net-mvc-view-model-pattern-quando-e-como-utilizar/ */
             // Initialization.  
-            CommonProdutoViewModel model = new CommonProdutoViewModel();
-            model.Produtos = db.Produto.Where(a => a.ativoProduto != false);
-            model.Estoque = db.Estoque;
-            return View(model);
+            return View(db.Produto.Where(a => a.ativoProduto != false));
         }
 
         [HttpPost]

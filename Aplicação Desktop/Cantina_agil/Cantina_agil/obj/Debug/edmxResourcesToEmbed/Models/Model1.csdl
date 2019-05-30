@@ -36,21 +36,11 @@
     <Property Name="idEntradaSaida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="dataEntradaSaida" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="quantEntradaSaida" Type="Int32" Nullable="false" />
-    <Property Name="idEstoque_EntradaSaida" Type="Int32" Nullable="false" />
     <Property Name="ativoEntradaSaida" Type="Boolean" />
-    <NavigationProperty Name="Estoque" Relationship="Self.FK_EntradaSaida_Estoque" FromRole="EntradaSaida" ToRole="Estoque" />
     <Property Name="id_Transacao" Type="Int32" />
     <NavigationProperty Name="Transacao" Relationship="Cantina_agilModel.id_Transacao" FromRole="EntradaSaida" ToRole="Transacao" />
-  </EntityType>
-  <EntityType Name="Estoque">
-    <Key>
-      <PropertyRef Name="idEstoque" />
-    </Key>
-    <Property Name="idEstoque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="quantidade" Type="Int32" Nullable="false" />
-    <Property Name="idProduto_Estoque" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="EntradaSaida" Relationship="Self.FK_EntradaSaida_Estoque" FromRole="Estoque" ToRole="EntradaSaida" />
-    <NavigationProperty Name="Produto" Relationship="Self.FK_Estoque_Produto" FromRole="Estoque" ToRole="Produto" />
+    <Property Name="id_Produto" Type="Int32" />
+    <NavigationProperty Name="Produto" Relationship="Cantina_agilModel.id_Produto" FromRole="EntradaSaida" ToRole="Produto" />
   </EntityType>
   <EntityType Name="Produto">
     <Key>
@@ -60,8 +50,9 @@
     <Property Name="nomeProduto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="ativoProduto" Type="Boolean" />
-    <NavigationProperty Name="Estoque" Relationship="Self.FK_Estoque_Produto" FromRole="Produto" ToRole="Estoque" />
     <Property Name="tipo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="quantidade" Type="Int32" />
+    <NavigationProperty Name="EntradaSaida" Relationship="Cantina_agilModel.id_Produto" FromRole="Produto" ToRole="EntradaSaida" />
   </EntityType>
   <EntityType Name="Sangria">
     <Key>
@@ -123,35 +114,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EntradaSaida_Estoque">
-    <End Role="Estoque" Type="Self.Estoque" Multiplicity="1" />
-    <End Role="EntradaSaida" Type="Self.EntradaSaida" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Estoque">
-        <PropertyRef Name="idEstoque" />
-      </Principal>
-      <Dependent Role="EntradaSaida">
-        <PropertyRef Name="idEstoque_EntradaSaida" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Estoque_Produto">
-    <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
-    <End Role="Estoque" Type="Self.Estoque" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Produto">
-        <PropertyRef Name="idProduto" />
-      </Principal>
-      <Dependent Role="Estoque">
-        <PropertyRef Name="idProduto_Estoque" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="Cantina_agilEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Atendente" EntityType="Self.Atendente" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" />
     <EntitySet Name="EntradaSaida" EntityType="Self.EntradaSaida" />
-    <EntitySet Name="Estoque" EntityType="Self.Estoque" />
     <EntitySet Name="Produto" EntityType="Self.Produto" />
     <EntitySet Name="Sangria" EntityType="Self.Sangria" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -164,17 +130,13 @@
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Transacao" EntitySet="Transacao" />
     </AssociationSet>
-    <AssociationSet Name="FK_EntradaSaida_Estoque" Association="Self.FK_EntradaSaida_Estoque">
-      <End Role="Estoque" EntitySet="Estoque" />
-      <End Role="EntradaSaida" EntitySet="EntradaSaida" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Estoque_Produto" Association="Self.FK_Estoque_Produto">
-      <End Role="Produto" EntitySet="Produto" />
-      <End Role="Estoque" EntitySet="Estoque" />
-    </AssociationSet>
     <EntitySet Name="Sugestao" EntityType="Cantina_agilModel.Sugestao" />
     <AssociationSet Name="id_Transacao" Association="Cantina_agilModel.id_Transacao">
       <End Role="Transacao" EntitySet="Transacao" />
+      <End Role="EntradaSaida" EntitySet="EntradaSaida" />
+    </AssociationSet>
+    <AssociationSet Name="id_Produto" Association="Cantina_agilModel.id_Produto">
+      <End Role="Produto" EntitySet="Produto" />
       <End Role="EntradaSaida" EntitySet="EntradaSaida" />
     </AssociationSet>
   </EntityContainer>
@@ -194,6 +156,18 @@
       </Principal>
       <Dependent Role="EntradaSaida">
         <PropertyRef Name="id_Transacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="id_Produto">
+    <End Type="Cantina_agilModel.Produto" Role="Produto" Multiplicity="0..1" />
+    <End Type="Cantina_agilModel.EntradaSaida" Role="EntradaSaida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="idProduto" />
+      </Principal>
+      <Dependent Role="EntradaSaida">
+        <PropertyRef Name="id_Produto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

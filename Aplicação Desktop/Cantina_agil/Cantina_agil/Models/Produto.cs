@@ -17,7 +17,7 @@ namespace Cantina_agil.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produto()
         {
-            this.Estoque = new HashSet<Estoque>();
+            this.EntradaSaida = new HashSet<EntradaSaida>();
         }
     
         public int idProduto { get; set; }
@@ -25,8 +25,9 @@ namespace Cantina_agil.Models
         public decimal valor { get; set; }
         public Nullable<bool> ativoProduto { get; set; }
         public string tipo { get; set; }
+        public Nullable<int> quantidade { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Estoque> Estoque { get; set; }
+        public virtual ICollection<EntradaSaida> EntradaSaida { get; set; }
     }
 }

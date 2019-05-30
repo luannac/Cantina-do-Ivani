@@ -14,23 +14,15 @@ namespace Cantina_agil.Models
     
     public partial class EntradaSaida
     {
+
         public int idEntradaSaida { get; set; }
         public System.DateTime dataEntradaSaida { get; set; }
         public int quantEntradaSaida { get; set; }
-        public int idEstoque_EntradaSaida { get; set; }
         public Nullable<bool> ativoEntradaSaida { get; set; }
         public Nullable<int> id_Transacao { get; set; }
+        public Nullable<int> id_Produto { get; set; }
     
-        public virtual Estoque Estoque { get; set; }
         public virtual Transacao Transacao { get; set; }
-
-        public EntradaSaida(DateTime now, int quant, int idEstoque, int idTransacao)
-        {
-            this.dataEntradaSaida = now;
-            this.quantEntradaSaida = quant;
-            this.idEstoque_EntradaSaida = idEstoque;
-            this.id_Transacao = idTransacao;
-            ativoEntradaSaida = true;
-        }
+        public virtual Produto Produto { get; set; }
     }
 }

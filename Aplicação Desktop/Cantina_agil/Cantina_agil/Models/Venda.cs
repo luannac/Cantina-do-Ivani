@@ -12,16 +12,16 @@ namespace Cantina_agil.Models
     public class Venda
     {
         private Cantina_agilEntities db = new Cantina_agilEntities();
-        private List<ProdutoInterno> entradaSaidas;
+        private List<Produto> entradaSaidas;
 
         public Venda()
         {
-            entradaSaidas = new List<ProdutoInterno>();
+            entradaSaidas = new List<Produto>();
         }
 
-        public string add(Produto produto,int quant)
+        public string add(Produto produto)
         {
-            ProdutoInterno prodI = new ProdutoInterno(produto,quant);
+            Produto prodI = new Produto();
             entradaSaidas.Add(prodI);
             return null;
         }
@@ -43,14 +43,13 @@ namespace Cantina_agil.Models
                 tra.idCliente_Transacao = idCliente;
             }
 
-            foreach(ProdutoInterno proI in entradaSaidas)
+            foreach(Produto proI in entradaSaidas)
             {
-                transacaoValor += proI.produto.valor;
+                transacaoValor += proI.valor;
 
                 EntradaSaida entr = new EntradaSaida(
                     DateTime.Now,
-                    proI.quant,
-                    db.Estoque.Where(a => a.idProduto_Estoque == proI.produto.idProduto).SingleOrDefault().idEstoque,
+                    proI.quantidade,
                     tra.idTransacao);
 
                 db.EntradaSaida.Add(entr);
@@ -61,18 +60,6 @@ namespace Cantina_agil.Models
             db.Transacao.Add(tra);
             db.SaveChanges();
             return null;
-        }
-    }
-
-    internal class ProdutoInterno
-    {
-        public Produto produto { get; set; }
-        public int quant { get; set; }
-
-        public ProdutoInterno(Produto produto, int quant)
-        {
-            this.produto = produto;
-            this.quant = quant;
         }
     }
 }

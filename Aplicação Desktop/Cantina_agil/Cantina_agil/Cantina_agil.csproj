@@ -3611,7 +3611,6 @@
     <Compile Include="Controllers\AndroidController.cs" />
     <Compile Include="Controllers\AtendentesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
-    <Compile Include="Controllers\EstoquesController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -3627,11 +3626,8 @@
     <Compile Include="Models\Cliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CommonProdutoViewModel.cs" />
+    <Compile Include="Models\EdicaoModel.cs" />
     <Compile Include="Models\EntradaSaida.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Estoque.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -3730,11 +3726,6 @@
     <Content Include="Views\Atendentes\Edit.cshtml" />
     <Content Include="Views\Atendentes\Index.cshtml" />
     <Content Include="Views\Log\AlterarSenha.cshtml" />
-    <Content Include="Views\Estoques\Create.cshtml" />
-    <Content Include="Views\Estoques\Delete.cshtml" />
-    <Content Include="Views\Estoques\Details.cshtml" />
-    <Content Include="Views\Estoques\Edit.cshtml" />
-    <Content Include="Views\Estoques\Index.cshtml" />
     <Content Include="Views\Vendas\Pdv.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

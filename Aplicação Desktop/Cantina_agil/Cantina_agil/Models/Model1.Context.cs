@@ -28,7 +28,6 @@ namespace Cantina_agil.Models
         public virtual DbSet<Atendente> Atendente { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<EntradaSaida> EntradaSaida { get; set; }
-        public virtual DbSet<Estoque> Estoque { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<Sangria> Sangria { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
