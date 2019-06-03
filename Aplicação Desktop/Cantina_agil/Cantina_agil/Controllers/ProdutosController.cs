@@ -175,14 +175,7 @@ namespace Cantina_agil.Controllers
             if (ModelState.IsValid)
             {
                 db.Produto.Add(produto);
-                db.SaveChanges();
-
-                /*Estoque estoque = new Estoque();
-               
-
-                db.Estoque.Add(estoque);
-                db.SaveChanges();*/
-                
+                db.SaveChanges();           
 
                 return RedirectToAction("Index");
             }
