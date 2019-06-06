@@ -17,12 +17,18 @@ namespace Cantina_agil.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View(db.Cliente.Where(a => a.ativoCliente == true || a.ativoCliente == null ));
         }
 
         // GET: Clientes/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +44,9 @@ namespace Cantina_agil.Controllers
         // GET: Clientes/Create
         public ActionResult Create()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View();
         }
 
@@ -48,6 +57,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idCliente,nomeCliente,relacaoSenai,emailCliente,foneCliente,celularCliente,rgCliente,cpfCliente,obsCliente,ativoCliente")] Cliente cliente)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Cliente.Add(cliente);
@@ -61,6 +73,9 @@ namespace Cantina_agil.Controllers
         // GET: Clientes/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +95,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idCliente,nomeCliente,relacaoSenai,emailCliente,foneCliente,celularCliente,rgCliente,cpfCliente,obsCliente,ativoCliente")] Cliente cliente)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Entry(cliente).State = EntityState.Modified;
@@ -92,6 +110,9 @@ namespace Cantina_agil.Controllers
         // GET: Clientes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +130,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             Cliente cliente = db.Cliente.Find(id);
             cliente.ativoCliente = false;
             db.Entry(cliente).State = EntityState.Modified;

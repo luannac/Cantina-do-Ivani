@@ -19,6 +19,9 @@ namespace Cantina_agil.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             /* https://www.eduardopires.net.br/2013/08/asp-net-mvc-view-model-pattern-quando-e-como-utilizar/ */
             // Initialization.  
             return View(db.Produto.Where(a => a.ativoProduto != false));
@@ -27,22 +30,19 @@ namespace Cantina_agil.Controllers
         [HttpPost]
         public ActionResult Index(int? codigo,string nome,double? valorMax,double? valorMin,bool? deletado)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (codigo != null)
-            {
                 return View(db.Produto.Where(a => a.idProduto.Equals((int)codigo)));
-            }          
 
             //Tratamento do Campos Valores
+            if (valorMax == null)
+                valorMax = (double)db.Produto.Max(a => a.valor);
 
-                if (valorMax == null)
-                {
-                    valorMax = (double)db.Produto.Max(a => a.valor);
-                }
-                if(valorMin == null)
-                {
-                    valorMin = 0;
-                }
-
+            if(valorMin == null)
+                valorMin = 0;
+                
             if (deletado == null)
             {
                 deletado = false;
@@ -61,92 +61,96 @@ namespace Cantina_agil.Controllers
             }
 
 
-                if (v != null)
-                {
-                    return View(v.ToList());
-                }
+            if (v != null)
+                return View(v.ToList());
 
 
-                /*
-                if (codigo != null)
-                {
-                    return View(db.Produto.Where(a => a.idProduto.Equals((int)codigo)));
-                }
-                if (deletado == null)
-                {
-                    deletado = false;
-                }
+            #region Pesquisa por SQL ---------------------------------------------------------------------------
 
-                SqlConnection con =
-                    new SqlConnection(ConfigurationManager.ConnectionStrings["BCD"].ConnectionString);
+            //if (codigo != null)
+            //{
+            //    return View(db.Produto.Where(a => a.idProduto.Equals((int)codigo)));
+            //}
+            //if (deletado == null)
+            //{
+            //    deletado = false;
+            //}
 
-                string comando = "select * from Produto where LOWER(nomeProduto ) like @nome or UPPER(nomeProduto ) like @nome1"
-                                    +" UNION "
-                                    +"select* from Produto where valor > @vMin and valor < @vMax";
+            //SqlConnection con =
+            //    new SqlConnection(ConfigurationManager.ConnectionStrings["BCD"].ConnectionString);
 
-                //Tratamento do Campos Valores
-                if (valorMin == null || valorMax == null)
-                {
-                    if (valorMax == null )
-                    {
-                        valorMax = (double)db.Produto.Max(a => a.valor);
-                    }
-                    else
-                    {
-                        valorMin = (double) db.Produto.Min(a => a.valor);
+            //string comando = "select * from Produto where LOWER(nomeProduto ) like @nome or UPPER(nomeProduto ) like @nome1"
+            //                    +" UNION "
+            //                    +"select* from Produto where valor > @vMin and valor < @vMax";
 
-                    }
-                }
+            ////Tratamento do Campos Valores
+            //if (valorMin == null || valorMax == null)
+            //{
+            //    if (valorMax == null )
+            //    {
+            //        valorMax = (double)db.Produto.Max(a => a.valor);
+            //    }
+            //    else
+            //    {
+            //        valorMin = (double) db.Produto.Min(a => a.valor);
+
+            //    }
+            //}
 
 
-                //Tratamento do campo Deletado
+            ////Tratamento do campo Deletado
 
-                if ((bool)deletado)
-                {
-                    comando.Union(" UNION select * from Produto where ativoProduto = 0");
-                }
-                else
-                {
-                    comando.Union(" UNION select * from Produto where ativoProduto = 1 or ativoProduto = null");
-                }
-                try
-                {
-                    con.Open();
-                    SqlCommand query =
-                        new SqlCommand(comando, con);
-                    query.Parameters.AddWithValue("@nome", nome);
-                    query.Parameters.AddWithValue("@nome1", nome);
-                    query.Parameters.AddWithValue("@vMin", valorMin);
-                    query.Parameters.AddWithValue("@vMax", valorMax+1);
-                    var leitor = query.ExecuteReader();
+            //if ((bool)deletado)
+            //{
+            //    comando.Union(" UNION select * from Produto where ativoProduto = 0");
+            //}
+            //else
+            //{
+            //    comando.Union(" UNION select * from Produto where ativoProduto = 1 or ativoProduto = null");
+            //}
+            //try
+            //{
+            //    con.Open();
+            //    SqlCommand query =
+            //        new SqlCommand(comando, con);
+            //    query.Parameters.AddWithValue("@nome", nome);
+            //    query.Parameters.AddWithValue("@nome1", nome);
+            //    query.Parameters.AddWithValue("@vMin", valorMin);
+            //    query.Parameters.AddWithValue("@vMax", valorMax+1);
+            //    var leitor = query.ExecuteReader();
 
-                    if (leitor != null)
-                    {
-                        return View(leitor);
-                    }
+            //    if (leitor != null)
+            //    {
+            //        return View(leitor);
+            //    }
 
-                }
-                catch (Exception e)
-                {
+            //}
+            //catch (Exception e)
+            //{
 
-                }
-                if (con.State == System.Data.ConnectionState.Open)
-                    con.Close();*/
-                return View(db.Produto.Where(a => a.ativoProduto.Equals(1) || a.ativoProduto != null));
+            //}
+            //if (con.State == System.Data.ConnectionState.Open)
+            //    con.Close();
+            //return View(db.Produto.Where(a => a.ativoProduto.Equals(1) || a.ativoProduto != null));
+            #endregion
 
-            /*
-            var produtos = db.Produto.Where(s => s.nomeProduto.Contains(stringDePesquisa));
-            //var estoque = db.Estoque.Where(d => d.idProduto_Estoque.Equals(produtos.Single().idProduto));
-            if(String.IsNullOrEmpty(stringDePesquisa))
-            {
-                return View(db.Produto.Where(a => a.ativoProduto == true || a.ativoProduto == null));
-            }
-            return View(produtos.Where(a => a.ativoProduto == true || a.ativoProduto == null));*/
+            #region Pesquisa por ADO com SQL -----------------------------------------------------------
+            //var produtos = db.Produto.Where(s => s.nomeProduto.Contains(stringDePesquisa));
+            ////var estoque = db.Estoque.Where(d => d.idProduto_Estoque.Equals(produtos.Single().idProduto));
+            //if(String.IsNullOrEmpty(stringDePesquisa))
+            //{
+            //    return View(db.Produto.Where(a => a.ativoProduto == true || a.ativoProduto == null));
+            //}
+            //return View(produtos.Where(a => a.ativoProduto == true || a.ativoProduto == null));
+            #endregion
         }
 
         // GET: Produtos/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -162,6 +166,9 @@ namespace Cantina_agil.Controllers
         // GET: Produtos/Create
         public ActionResult Create()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View();
         }
 
@@ -172,6 +179,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idProduto,nomeProduto,valor,ativoProduto")] Produto produto)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Produto.Add(produto);
@@ -186,6 +196,9 @@ namespace Cantina_agil.Controllers
         // GET: Produtos/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -205,6 +218,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idProduto,nomeProduto,valor,ativoProduto")] Produto produto)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Entry(produto).State = EntityState.Modified;
@@ -217,6 +233,9 @@ namespace Cantina_agil.Controllers
         // GET: Produtos/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -234,6 +253,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             Produto produto = db.Produto.Find(id);
             produto.ativoProduto = false;
             db.Entry(produto).State = EntityState.Modified;

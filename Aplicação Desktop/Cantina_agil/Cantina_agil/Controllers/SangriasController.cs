@@ -17,6 +17,9 @@ namespace Cantina_agil.Controllers
         // GET: Sangrias
         public ActionResult Index()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             var sangria = db.Sangria.Include(s => s.Atendente);
             return View(sangria.ToList());
         }
@@ -24,6 +27,9 @@ namespace Cantina_agil.Controllers
         // GET: Sangrias/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +45,9 @@ namespace Cantina_agil.Controllers
         // GET: Sangrias/Create
         public ActionResult Create()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             ViewBag.idAtendente_Sangria = new SelectList(db.Atendente, "idAtendente", "nomeAtendente");
             return View();
         }
@@ -50,6 +59,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idSangria,abertura,fechamento,valorSangria,idAtendente_Sangria,ativoSangria")] Sangria sangria)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Sangria.Add(sangria);
@@ -64,6 +76,9 @@ namespace Cantina_agil.Controllers
         // GET: Sangrias/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +99,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idSangria,abertura,fechamento,valorSangria,idAtendente_Sangria,ativoSangria")] Sangria sangria)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Entry(sangria).State = EntityState.Modified;
@@ -97,6 +115,9 @@ namespace Cantina_agil.Controllers
         // GET: Sangrias/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +135,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             Sangria sangria = db.Sangria.Find(id);
             db.Sangria.Remove(sangria);
             db.SaveChanges();
