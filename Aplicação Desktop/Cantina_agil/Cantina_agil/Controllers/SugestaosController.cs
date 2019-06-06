@@ -17,12 +17,18 @@ namespace Cantina_agil.Controllers
         // GET: Sugestaos
         public ActionResult Index()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View(db.Sugestao.ToList());
         }
 
         // GET: Sugestaos/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +44,9 @@ namespace Cantina_agil.Controllers
         // GET: Sugestaos/Create
         public ActionResult Create()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View();
         }
 
@@ -48,6 +57,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "codigo,sugestao1")] Sugestao sugestao)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Sugestao.Add(sugestao);
@@ -61,6 +73,9 @@ namespace Cantina_agil.Controllers
         // GET: Sugestaos/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +95,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "codigo,sugestao1")] Sugestao sugestao)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Entry(sugestao).State = EntityState.Modified;
@@ -92,6 +110,9 @@ namespace Cantina_agil.Controllers
         // GET: Sugestaos/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +130,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             Sugestao sugestao = db.Sugestao.Find(id);
             db.Sugestao.Remove(sugestao);
             db.SaveChanges();

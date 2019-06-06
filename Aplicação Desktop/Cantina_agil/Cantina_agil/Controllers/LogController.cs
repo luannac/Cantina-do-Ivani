@@ -38,7 +38,7 @@ namespace CantinaAgil.Controllers
                 }
             }
             return RedirectToAction("Logar", "Log");
-            //-----------------------------------------------------------------------------------
+            #region Login por SQL-----------------------------------------------------------------------------
             /*
             SqlDataReader leitor=null;
             SqlConnection con =
@@ -67,6 +67,7 @@ namespace CantinaAgil.Controllers
             if (con.State == System.Data.ConnectionState.Open)
                 con.Close();
             return RedirectToAction("Logar", "Log");*/
+            #endregion
         }
 
         public ActionResult RecuperarSenha()
@@ -130,7 +131,8 @@ namespace CantinaAgil.Controllers
     
         public ActionResult Logout()
         {
-            Session["User"] = null;
+            Session["User.Name"] = null;
+            Session["User.id"] = null;
             return RedirectToAction("Logar", "log");
         }
     }

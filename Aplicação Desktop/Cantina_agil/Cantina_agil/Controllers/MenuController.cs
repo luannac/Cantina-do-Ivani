@@ -13,6 +13,9 @@ namespace Cantina_agil.Controllers
         // GET: Menu   
         public ActionResult Index()
         {
+            if(Session["User.id"] == null)
+               return RedirectToAction("Logar", "Log");
+
             return View();
         }
 

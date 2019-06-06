@@ -17,12 +17,18 @@ namespace Cantina_agil.Controllers
         // GET: Atendentes
         public ActionResult Index()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View(db.Atendente.Where(a => a.ativoAtendente == true || a.ativoAtendente == null));
         }
 
         // GET: Atendentes/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -37,7 +43,10 @@ namespace Cantina_agil.Controllers
 
         // GET: Atendentes/Create
         public ActionResult Create()
-        {
+        { 
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             return View();
         }
 
@@ -48,7 +57,10 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idAtendente,nomeAtendente,loginAtendente,senhaAtendente,emailAtendente,ativoAtendente,cpf")] Atendente atendente)
         {
-            if (ModelState.IsValid)
+        if (Session["User.id"] == null)
+            return RedirectToAction("Logar", "Log");
+
+        if (ModelState.IsValid)
             {
                 db.Atendente.Add(atendente);
                 db.SaveChanges();
@@ -61,7 +73,10 @@ namespace Cantina_agil.Controllers
         // GET: Atendentes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+        if (Session["User.id"] == null)
+            return RedirectToAction("Logar", "Log");
+
+        if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -80,6 +95,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idAtendente,nomeAtendente,loginAtendente,senhaAtendente,emailAtendente,ativoAtendente,cpf")] Atendente atendente)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (ModelState.IsValid)
             {
                 db.Entry(atendente).State = EntityState.Modified;
@@ -92,6 +110,9 @@ namespace Cantina_agil.Controllers
         // GET: Atendentes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +130,9 @@ namespace Cantina_agil.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
 
             Atendente atendente = db.Atendente.Find(id);
             atendente.ativoAtendente = false;
