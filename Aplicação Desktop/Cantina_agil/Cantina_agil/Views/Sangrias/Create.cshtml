@@ -6,55 +6,76 @@
 }
 
 <h2>Criando...</h2>
+<head>
+    <link href="~/Content/formatationCadastrar.css" rel="stylesheet" />
+</head>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Sangria</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.abertura, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.abertura, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.abertura, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.fechamento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fechamento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fechamento, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.valorSangria, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.valorSangria, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.valorSangria, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="Image">
+        <div class="container">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block bg-register-image">
+                            <img class="img" src="~/Image/atendente.png" />
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Criar" class="btn btn-primary" />
+                                    <a href=@Url.Action("Index", "Atendentes") class="btn btn-primary" data-toggle="button">
+                                        Voltar para Lista
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Crie sua Conta!</h1>
+                                </div>
+                                <form class="user">
+                                    <h4>Clientes</h4>
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0 row esquerda">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.idAtendente_Sangria, "idAtendente_Sangria", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idAtendente_Sangria", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idAtendente_Sangria, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                            <div class="form-group">
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a href=@Url.Action("Index","Sangrias") class="btn btn-primary" data-toggle="button">
-                    Voltar para Lista
-                </a>
+                                                <label>Nome</label>
+                                               @Html.EditorFor(model => model.fechamento, new { htmlAttributes = new { @class = "form-control" } })
+                                               @Html.ValidationMessageFor(model => model.fechamento, "", new { @class = "text-danger" })
+
+                                                <label>Abertura</label>
+                                               @Html.EditorFor(model => model.abertura, new { htmlAttributes = new { @class = "form-control" } })
+                                               @Html.ValidationMessageFor(model => model.abertura, "", new { @class = "text-danger" })
+
+                                                <label>Valor</label>
+                                               @Html.EditorFor(model => model.valorSangria, new { htmlAttributes = new { @class = "form-control" } })
+                                               @Html.ValidationMessageFor(model => model.valorSangria, "", new { @class = "text-danger" })
+
+                                                <label> Nome do Atendente</label>
+                                               @Html.DropDownList("idAtendente_Sangria", null, htmlAttributes: new { @class = "form-control" })
+                                               @Html.ValidationMessageFor(model => model.idAtendente_Sangria, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="js/sb-admin-2.min.js"></script>
     </div>
 }
-

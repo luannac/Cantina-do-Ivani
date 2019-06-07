@@ -1,18 +1,44 @@
-﻿.button{
-    margin-top:10px;
-    margin-left:80px;
-    width:12rem !important;
-    background-color: #CE880D;
-    border-color:#CE880D;
-    color:#ffffff;
+﻿
+.col-xl-10, .col-lg-12, .col-md-9{
+    margin-top:170px;
 }
-.button:hover{
-   background-color: #6F4804;
-  border-color: #6F4804;
+
+.col-md-10{
+padding-right:10px;
+width:100px;
+margin-left:10px;
+}
+
+.texto{
+    color:#fdfeff;
+}
+
+.form-group{
+    margin-left:200px;
+    width:100%;
+}
+
+.mb-4{
+    margin-left:200px;
+}
+
+input{
+    width:300px;
+}
+
+.row{
+    width:70%;
 }
 
 
-label{
-    margin-top:10px;
-    color:#ffffff;
+.h4{
+    margin-left:30px;
+}
+
+.col-lg-6{
+    margin-left:200px;
+}
+
+.col-xl-10, .col-lg-12, .col-md-9 {
+    margin-left: 180px;
 }

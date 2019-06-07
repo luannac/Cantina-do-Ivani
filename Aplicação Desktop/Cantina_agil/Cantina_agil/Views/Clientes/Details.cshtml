@@ -11,76 +11,52 @@
     <h4>Clientes</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nomeCliente)
-        </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nomeCliente)
+            <label> Nome:</label>   @Html.DisplayFor(model => model.nomeCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.relacaoSenai)
-        </dt>
+        <hr />
+        <dd>
+            <label> Relação:</label>   @Html.DisplayFor(model => model.relacaoSenai)
+        </dd>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.relacaoSenai)
+            <label> E-mail:</label>  @Html.DisplayFor(model => model.emailCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.emailCliente)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.emailCliente)
+            <label> Telefone:</label>   @Html.DisplayFor(model => model.foneCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.foneCliente)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.foneCliente)
+            <label> Celular:</label>  @Html.DisplayFor(model => model.celularCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.celularCliente)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.celularCliente)
+            <label> RG:</label>   @Html.DisplayFor(model => model.rgCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.rgCliente)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.rgCliente)
+            <label> CPF:</label>   @Html.DisplayFor(model => model.cpfCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cpfCliente)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.cpfCliente)
+            <label> Observação:</label>   @Html.DisplayFor(model => model.obsCliente)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.obsCliente)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.obsCliente)
-        </dd>
+        <hr />
 
     </dl>
 </div>
 <p>
-    <button type="button" class="btn btn-primary" data-toggle="button" >
-       @Html.ActionLink("Editar", "Edit", new { id = Model.idCliente }) 
-    </button>
+    <a href=@Url.Action("Edit","Clientes" , new { id = Model.idCliente }) class="btn btn-primary" data-toggle="button" >
+        Editar
+    </a>
     <a href=@Url.Action("Index","Clientes") class="btn btn-primary" data-toggle="button">
         Voltar para Lista
     </a> 

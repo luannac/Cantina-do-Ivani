@@ -11,43 +11,32 @@
     <h4>Sangria</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.abertura)
-        </dt>
+        <dd>
+            <label>Abertura</label>  @Html.DisplayFor(model => model.abertura)
+        </dd>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.abertura)
+            <label>Fechamento</label>  @Html.DisplayFor(model => model.fechamento)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fechamento)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.fechamento)
+            <label>Valor</label>  @Html.DisplayFor(model => model.valorSangria)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.valorSangria)
-        </dt>
+        <hr />
 
         <dd>
-            @Html.DisplayFor(model => model.valorSangria)
+            <label>Nome Atendente</label>   @Html.DisplayFor(model => model.Atendente.nomeAtendente)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Atendente.nomeAtendente)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Atendente.nomeAtendente)
-        </dd>
+        <hr />
 
     </dl>
 </div>
 <p>
-      <button type="button" class="btn btn-primary" data-toggle="button" >
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idSangria })
-        </button>
+      <a href=@Url.Action("Edit","Atendentes" , new { id = Model.idSangria }) class="btn btn-primary" data-toggle="button" >
+        Editar
+        </a>
         <a href=@Url.Action("Index","Sangrias") class="btn btn-primary" data-toggle="button">
             Voltar para Lista
         </a>

@@ -4,8 +4,7 @@
 }
 
 .row{
-    background-color:lightblue;
-    color:blue;
+    background-color:#e4c57fcc;
 }
 
 .form-control-user{
@@ -19,9 +18,21 @@ label{
 .btn-primary{
     background-color:#12BCE2;
     border-color:#12BCE2;
-    margin-top:60px;
+    margin-top:30px;
     width:300px;
     margin-left:90px;
+}
+
+.btn-primary:hover{
+    background-color:#8c6307cc;
+    border-color:#8c6307cc;
+}
+
+.btn{
+    background-color:rgba(245, 181, 82, 0.95);
+    border-color:rgba(245, 181, 82, 0.95);
+    width:250px;
+    color:#808080;
 }
 
 .esquerda{
@@ -37,4 +48,28 @@ label{
     margin-left:80px;
 }
 
+.col-md-10{
 
+}
+
+ input {
+display: block;
+width: 100%;
+height: calc(1.5em + 0.75rem + 2px);
+padding: 0.375rem 0.75rem;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+color: #495057;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #ced4da;
+border-radius: 0.25rem;
+transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+
+
+ .col-md-10{
+     max-width:100%;
+ }

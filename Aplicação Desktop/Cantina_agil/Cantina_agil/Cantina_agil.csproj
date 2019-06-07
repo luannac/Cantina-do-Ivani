@@ -1683,6 +1683,8 @@
     <Content Include="Content\formatationAlterarSenha.css" />
     <Content Include="Content\formatationCadastrar.css" />
     <Content Include="Content\formatationLogin.css" />
+    <Content Include="Content\formatationPDV.css" />
+    <Content Include="Content\formatationPDV2.css" />
     <Content Include="Content\formatationSite.css" />
     <Content Include="Content\formatationSobre.css" />
     <Content Include="Content\Site.css" />
@@ -3257,7 +3259,14 @@
     <Content Include="Content\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Image\atendente.jpg" />
+    <Content Include="Image\atendente.png" />
+    <Content Include="Image\BEM-VINDOD.png" />
     <Content Include="Image\foto3.jpg" />
+    <Content Include="Image\images.png" />
+    <Content Include="Image\imga.png" />
+    <Content Include="Image\ims.png" />
+    <Content Include="Image\tela.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -3698,7 +3707,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Log\RecuperarSenha.cshtml" />
-    <Content Include="Views\Menu\Cadastrar.cshtml" />
     <Content Include="Views\Produtos\Create.cshtml" />
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\Details.cshtml" />
@@ -3731,6 +3739,8 @@
     <Content Include="Views\Atendentes\Index.cshtml" />
     <Content Include="Views\Log\AlterarSenha.cshtml" />
     <Content Include="Views\Vendas\Pdv.cshtml" />
+    <Content Include="Views\Shared\_LayoutVenda.cshtml" />
+    <Content Include="Views\Vendas\vena.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3740,7 +3750,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Android\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

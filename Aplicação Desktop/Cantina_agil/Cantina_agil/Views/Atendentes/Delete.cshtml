@@ -7,55 +7,46 @@
 
 <h2>Deletar</h2>
 
-<h3>Tem certeza que deseja Deletar?</h3>
 <div>
     <h4>Atendentes</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nomeAtendente)
-        </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nomeAtendente)
+            <label class="label-control">Nome:</label> @Html.DisplayFor(model => model.nomeAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.loginAtendente)
-        </dt>
+
+        <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.loginAtendente)
+            <label class="label-control">Login:</label> </dt>@Html.DisplayFor(model => model.loginAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.senhaAtendente)
-        </dt>
+        <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.senhaAtendente)
+            <label class="label-control">Senha:</label></dt> @Html.DisplayFor(model => model.senhaAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.emailAtendente)
-        </dt>
+        <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.emailAtendente)
+            <label class="label-control">E-mail:</label></dt> @Html.DisplayFor(model => model.emailAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cpf)
-        </dt>
+        <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.cpf)
+            <label class="label-control">CPF:</label> </dt> @Html.DisplayFor(model => model.cpf)
         </dd>
+        <hr>
 
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
+        <h3>Tem certeza que deseja Deletar?</h3>
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-primary" />

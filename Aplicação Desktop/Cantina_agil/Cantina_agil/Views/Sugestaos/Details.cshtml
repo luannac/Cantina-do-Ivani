@@ -14,17 +14,18 @@
         <dt>
             @Html.DisplayNameFor(model => model.sugestao1)
         </dt>
-
+        <hr />
         <dd>
             @Html.DisplayFor(model => model.sugestao1)
         </dd>
+        <hr />
 
     </dl>
 </div>
 <p>
-    <button type="button" class="btn btn-primary" data-toggle="button">
-        @Html.ActionLink("Editar", "Edit", new { id = Model.codigo })
-    </button>
+    <a href=@Url.Action("Edit","Atendentes" , new { id = Model.codigo }) class="btn btn-primary" data-toggle="button">
+        Editar
+    </a>
     <a href=@Url.Action("Index","Sugestoes") class="btn btn-primary" data-toggle="button">
         Voltar para Lista
     </a>

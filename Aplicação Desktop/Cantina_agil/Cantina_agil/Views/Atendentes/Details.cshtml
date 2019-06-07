@@ -11,52 +11,43 @@
     <h4>Atendentes</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nomeAtendente)
-        </dt>
+        
 
         <dd>
-            @Html.DisplayFor(model => model.nomeAtendente)
+            <label class="label-control">Nome:</label> @Html.DisplayFor(model => model.nomeAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.loginAtendente)
-        </dt>
+        
+            <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.loginAtendente)
+            <label class="label-control">Login:</label> </dt>@Html.DisplayFor(model => model.loginAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.senhaAtendente)
-        </dt>
+            <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.senhaAtendente)
+            <label class="label-control">Senha:</label></dt> @Html.DisplayFor(model => model.senhaAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.emailAtendente)
-        </dt>
+        <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.emailAtendente)
+            <label class="label-control">E-mail:</label></dt> @Html.DisplayFor(model => model.emailAtendente)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cpf)
-        </dt>
+        <hr>
 
         <dd>
-            @Html.DisplayFor(model => model.cpf)
+            <label class="label-control">CPF:</label> </dt> @Html.DisplayFor(model => model.cpf)
         </dd>
-
+        <hr>
     </dl>
 </div>
 <p>
-    <button type="button" class="btn btn-primary" data-toggle="button" >
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idAtendente }) 
-    </button> 
+    <a href=@Url.Action("Edit","Atendentes", new { id = Model.idAtendente }) class="btn btn-primary" data-toggle="button" >
+        Editar
+    </a> 
     <a href=@Url.Action("Index", "Atendentes") class="btn btn-primary" data-toggle="button">
         Voltar para Lista
     </a> 

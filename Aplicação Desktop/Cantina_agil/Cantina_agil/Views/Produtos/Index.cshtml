@@ -7,57 +7,60 @@
 
 <h2>Produtos</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href=@Url.Action("Create","Produtos") class="btn btn-primary" data-toggle="button" >
+        Criar um novo
+      
+    </a>
 </p>
 
-<form method="post" action=@Url.Action("Index","Produtos")>
+   <form class="serch" method="post" action=@Url.Action("Index","Produtos")>
+        <input type="text" name="stringDePesquisa" placeholder="Nome" />
+        <input type="submit" value="Pesquisar"/>
+    </form>
 
-    <input type="number" name="codigo" placeholder="Código" />
-    <input type="text" name="nome" placeholder="Nome Produto" />
-    <input type="number" step="any" name="valorMin" placeholder="Valor Mínimo" />
-    <input type="number" step="any" name="valorMax" placeholder="Valor Máximo" />
-    <input id="deletado" type="checkbox" name="deletado" value="true" /><label>Mostrar Deletados</label>
-    <input type="submit" value="Pesquisar" />
-</form>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    <label class="label-control">Código</label>
+                </th>
+                <th>
+                    <label class="label-control">Nome</label>
+                </th>
+                <th>
+                    <label class="label-control">Valor</label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table">
-    <tr>
-        <th>
-            Código
-        </th>
-        <th>
-            Nome do Produto
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantidade)
-        </th>
-        <th></th>
-    </tr>
-   
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.idProduto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nomeProduto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.valor)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.quantidade)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idProduto }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idProduto }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idProduto })
-            </td>
-        </tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomeProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor)
+                </td>
+                <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Produtos", new { id = item.idProduto })>
+                            Editar
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Details", "Produtos", new { id = item.idProduto })>
+                            Detalhes
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Produtos", new { id = item.idProduto })>
+                            Deletar
+                        </a>
+                    </div>
+                </td>
+            </tr>
 
-</table>
+        }
+
+    </table>

@@ -337,6 +337,7 @@ progress {
   -webkit-appearance: none;
 }
 
+
 ::-webkit-file-upload-button {
   font: inherit;
   -webkit-appearance: button;
@@ -8176,10 +8177,6 @@ button.bg-dark:focus {
 .pl-4,
 .px-4 {
   padding-left: 1.5rem !important;
-}
-
-.p-5 {
-  padding: 3rem !important;
 }
 
 .pt-5,

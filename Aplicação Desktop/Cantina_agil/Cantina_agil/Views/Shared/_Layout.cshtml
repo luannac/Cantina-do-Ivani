@@ -1,6 +1,4 @@
-﻿@model IEnumerable<Cantina_agil.Models.Atendente>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html >
 <head>
     <meta charset="utf-8">
@@ -27,7 +25,7 @@
         <!-- Sidebar -->
         <ul class="menu navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href=@Url.Action("Index","Menu")>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center bottom" href=@Url.Action("Index","Menu")>
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -80,7 +78,7 @@
             </div>
             <!-- Nova Página - Vendas -->
             <li class="nav-item ">
-                <a class="nav-link collapsed" href=@Url.Action("Index", "Vendas")>
+                <a class="nav-link collapsed" href=@Url.Action("Pdv", "Vendas")>
                     <i class="fas fa-hand-point-right"></i>
                     <span>Vendas</span>
                 </a>
@@ -95,7 +93,6 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-
             <!-- Logout - Sair -->
             <li class="nav-item">
                 <a class="nav-link sair " href=@Url.Action("Logar","Log")>
@@ -116,22 +113,14 @@
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href=@Url.Action("Index","Sugestoes") id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
                             </a>
                         </li>
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link " href="@Url.Action("Cadastrar","Menu")" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-address-book"></i>
-                                <!-- Counter - Messages -->
-                                <span class="text-center">&nbsp;Cadastrar um Novo Atendente</span>
-                            </a>
-                        </li>
+                        
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Session["User.Name"].ToString()</span>      
+                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">USUARIO</span>      
                             </a>
                         </li>
                     </ul>

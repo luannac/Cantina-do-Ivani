@@ -18,40 +18,33 @@
         @Html.HiddenFor(model => model.idSangria)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.abertura, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+     <label>Abertura</label>           
                 @Html.EditorFor(model => model.abertura, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.abertura, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fechamento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fechamento, new { htmlAttributes = new { @class = "form-control" } })
+            <label>Fechamento</label>  
+                            @Html.EditorFor(model => model.fechamento, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.fechamento, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.valorSangria, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.valorSangria, new { htmlAttributes = new { @class = "form-control" } })
+            <label>Valor</label>  
+                            @Html.EditorFor(model => model.valorSangria, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.valorSangria, "", new { @class = "text-danger" })
-            </div>
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idAtendente_Sangria, "idAtendente_Sangria", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idAtendente_Sangria", null, htmlAttributes: new { @class = "form-control" })
+            <label>Nome atendentes</label>  
+                            @Html.DropDownList("idAtendente_Sangria", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idAtendente_Sangria, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
                 <a href=@Url.Action("Index","Sangrias") class="btn btn-primary" data-toggle="button">
                     Voltar para Lista
                 </a>

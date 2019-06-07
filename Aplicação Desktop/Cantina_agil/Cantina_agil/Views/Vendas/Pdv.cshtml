@@ -1,61 +1,79 @@
 ﻿@model Cantina_agil.Models.Transacao
 @{
     ViewBag.Title = "Pdv";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutVenda.cshtml";
 }
 
-<h2>Pdv</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>Transação</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.valorTransacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.valorTransacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.valorTransacao, "", new { @class = "text-danger" })
+<div class="align-self-center">
+    <div class="container margin-top-mob-10px">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Código</span>
             </div>
+            <input type="text" aria-label="First name" class="form-control">
+            <input type="text" aria-label="Last name" class="form-control">
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.dataTransacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.dataTransacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dataTransacao, "", new { @class = "text-danger" })
+        <div class="voltar">
+            <a class="btn btn-primary" href=@Url.Action("Index", "Menu")>
+               <span class="input-group-text">Voltar</span>
+               </a>
+            <a class="btn btn-primary" href="#">
+                <span class="input-group-text">Confirmar</span>
+            </a>
             </div>
+               </div>
+                <div class="col-xs-12 col-md-6">
+
+                    <div class="container-venda height-675px-mob" id="areaLancamentos">
+
+
+                        <input data-val="true" data-val-number="The field NotaFiscalConsumidorId must be a number." data-val-required="The NotaFiscalConsumidorId field is required." id="NotaFiscalConsumidorId" name="NotaFiscalConsumidorId" type="hidden" value="230581" />
+
+                        <div class="container-venda-lista">
+                            <table class="table">
+                                <tbody>
+                                    <div class="campodecompra">
+                                        
+                                            <h2>Preço Total: 0,00</h2>
+                                        
+                                    </div>
+                                    <div class="campodeprodutos">
+                                       
+                                       <h3>Produto:&nbsp; Nome </h3>
+                                           
+                                         <h4>Preço:&nbsp; 0,00 </h4>
+                                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                                <div class="container-venda-acoes">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <a href="#" id="btnLimpar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="#" id="btnPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pago, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.pago)
-                    @Html.ValidationMessageFor(model => model.pago, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.dataPagamento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.dataPagamento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dataPagamento, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a href=@Url.Action("Index", "Vendas") class="btn btn-primary" data-toggle="button">
-                    Voltar para Lista
-                </a>
-        </div>
+<p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Link with href
+    </a>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-target
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
     </div>
-}
+</div>
+          
