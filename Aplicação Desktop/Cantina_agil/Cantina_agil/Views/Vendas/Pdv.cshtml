@@ -10,41 +10,54 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Código</span>
             </div>
-            <input type="text" aria-label="First name" class="form-control">
-            <input type="text" aria-label="Last name" class="form-control">
+            <label>Codigo</label>
+            <input id="cpCodigo" type="text" aria-label="First name" class="form-control">
+            <input id="cpValor" type="text" aria-label="Last name" class="form-control">
+            <input id="cpQuant" type="text" aria-label="Last name" class="form-control">
         </div>
         <div class="voltar">
             <a class="btn btn-primary" href=@Url.Action("Index", "Menu")>
                <span class="input-group-text">Voltar</span>
                </a>
-            <a class="btn btn-primary" href="#">
+            <a class="btn btn-primary" href="#" onclick="addProduto();">
                 <span class="input-group-text">Confirmar</span>
             </a>
             </div>
                </div>
                 <div class="col-xs-12 col-md-6">
 
-                    <div class="container-venda height-675px-mob" id="areaLancamentos">
+                    <div class="container-venda height-675px-mob" >
+
 
 
                         <input data-val="true" data-val-number="The field NotaFiscalConsumidorId must be a number." data-val-required="The NotaFiscalConsumidorId field is required." id="NotaFiscalConsumidorId" name="NotaFiscalConsumidorId" type="hidden" value="230581" />
 
                         <div class="container-venda-lista">
                             <table class="table">
-                                <tbody>
-                                    <div class="campodecompra">
-                                        
+                                        <tr>
+                                            <th>
+                                                <label class="label-control">Código</label>
+                                            </th>
+                                            <th>
+                                                <label class="label-control">Nome</label>
+                                            </th>
+                                            <th>
+                                                <label class="label-control">Valor</label>
+                                            </th>
+                                            <th>
+                                                <label class="label-control">Quantidade</label>
+                                            </th>
+                                        </tr>
+                                    <tbody id="areaLancamentos" class="campodeprodutos">
+
+
+                                        <div class="campodecompra">
+
                                             <h2>Preço Total: 0,00</h2>
-                                        
-                                    </div>
-                                    <div class="campodeprodutos">
-                                       
-                                       <h3>Produto:&nbsp; Nome </h3>
-                                           
-                                         <h4>Preço:&nbsp; 0,00 </h4>
-                                    </div>
-                                </tbody>
-                            </table>
+
+                                        </div>
+                                    </tbody>
+                                </table>
                         </div>
 
 

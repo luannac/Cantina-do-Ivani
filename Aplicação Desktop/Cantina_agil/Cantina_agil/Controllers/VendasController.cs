@@ -13,7 +13,7 @@ namespace Cantina_agil.Controllers
     public class VendasController : Controller
     {
         private Cantina_agilEntities db = new Cantina_agilEntities();
-        private Venda venda;
+        private static Venda venda;
 
         // GET: Vendas
         public ActionResult Index()
@@ -24,9 +24,23 @@ namespace Cantina_agil.Controllers
 
         public ActionResult Pdv()
         {
+            venda = new Venda();
             return View();
         }
-
+         public ActionResult addProduto(int id,double valor,int quant)
+        {
+            Produto prod = db.Produto.Find(id);
+            prod.valor = Convert.ToDecimal(valor);
+            prod.quantidade = quant;
+            venda.add(prod);
+            
+            return Json(new {
+                id = prod.idProduto,
+                nome = prod.nomeProduto,
+                valor = prod.valor,
+                quant = prod.quantidade }
+            , JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Vendas/Details/5
         public ActionResult Details(int? id)

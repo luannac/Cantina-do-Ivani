@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Cantina_agil.Models
 {
@@ -12,7 +14,7 @@ namespace Cantina_agil.Models
     public class Venda
     {
         private Cantina_agilEntities db = new Cantina_agilEntities();
-        private List<Produto> entradaSaidas;
+        public List<Produto> entradaSaidas;
 
         public Venda()
         {
@@ -25,6 +27,7 @@ namespace Cantina_agil.Models
             entradaSaidas.Add(prodI);
             return null;
         }
+
    
         public string RegistraVenda(bool pago,bool aPrazo,int? idCliente)
         {

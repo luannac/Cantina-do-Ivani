@@ -63,7 +63,7 @@ namespace Cantina_agil.Controllers
 
             if (v != null)
                 return View(v.ToList());
-
+            return View(db.Produto.ToList());
 
             #region Pesquisa por SQL ---------------------------------------------------------------------------
 
