@@ -23,9 +23,19 @@ namespace Cantina_agil.Models
 
         public string add(Produto produto)
         {
-            Produto prodI = new Produto();
+            Produto prodI = produto;
             entradaSaidas.Add(prodI);
             return null;
+        }
+
+        public decimal ValorTotal()
+        {
+            decimal valor = 0;
+            foreach(Produto item in entradaSaidas)
+            {
+                valor += item.valor;
+            }
+            return valor;
         }
 
    

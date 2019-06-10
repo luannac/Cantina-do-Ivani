@@ -5,9 +5,60 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
+<h2>Index</h2>
 
-</div>
-<div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.valorTransacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataTransacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataPagamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ativoTransacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
+        </th>
+        <th></th>
+    </tr>
 
-</div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorTransacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataTransacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataPagamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ativoTransacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.nomeCliente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Vendas", new { id=item.idTransacao }) |
+            @Html.ActionLink("Details", "Vendas", new { id=item.idTransacao }) |
+            @Html.ActionLink("Delete", "Vendas", new { id=item.idTransacao })
+        </td>
+    </tr>
+}
+
+</table>

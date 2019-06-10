@@ -11,9 +11,8 @@
                 <span class="input-group-text">Código</span>
             </div>
             <label>Codigo</label>
-            <input id="cpCodigo" type="text" aria-label="First name" class="form-control">
-            <input id="cpValor" type="text" aria-label="Last name" class="form-control">
-            <input id="cpQuant" type="text" aria-label="Last name" class="form-control">
+            <input id="cpCodigo" onkeyup="PressKeyCpCodigo();" type="text" aria-label="First name" class="form-control">
+            <input id="cpQuant" onkeyup="PressKeyCpQuant();" type="text" aria-label="Last name" class="form-control">
         </div>
         <div class="voltar">
             <a class="btn btn-primary" href=@Url.Action("Index", "Menu")>
@@ -53,7 +52,7 @@
 
                                         <div class="campodecompra">
 
-                                            <h2>Preço Total: 0,00</h2>
+                                            <h2 id="ValorTotal">Preço Total: 0,00</h2>
 
                                         </div>
                                     </tbody>

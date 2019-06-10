@@ -15,31 +15,46 @@ namespace Cantina_agil.Controllers
         private Cantina_agilEntities db = new Cantina_agilEntities();
         private static Venda venda;
 
-        // GET: Vendas
-        public ActionResult Index()
-        {
-            var transacao = db.Transacao.Include(t => t.Cliente).Include(t => t.EntradaSaida);
-            return View();
-        }
-
+        #region Tela Vendas =====================================================
         public ActionResult Pdv()
         {
             venda = new Venda();
             return View();
         }
-         public ActionResult addProduto(int id,double valor,int quant)
+        public ActionResult addProduto(int id, int quant)
         {
             Produto prod = db.Produto.Find(id);
-            prod.valor = Convert.ToDecimal(valor);
+            prod.valor = Convert.ToDecimal(prod.valor*quant);
             prod.quantidade = quant;
             venda.add(prod);
-            
-            return Json(new {
+
+            return Json(new
+            {
                 id = prod.idProduto,
                 nome = prod.nomeProduto,
                 valor = prod.valor,
-                quant = prod.quantidade }
+                quant = prod.quantidade
+            }
             , JsonRequestBehavior.AllowGet);
+        }
+         public ActionResult PegaValorPro(int id)
+        {
+            return Json(new { resultado = db.Produto.Find(id).valor },JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult PegaValorVenda()
+        {
+            return Json(new { resultado = venda.ValorTotal() },JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region CRUD =====================================================================
+
+        // GET: Vendas
+        public ActionResult Index()
+        {
+            return View(db.Transacao.Where(a=> a.pago==false));
         }
 
         // GET: Vendas/Details/5
@@ -154,4 +169,5 @@ namespace Cantina_agil.Controllers
             base.Dispose(disposing);
         }
     }
+    #endregion
 }

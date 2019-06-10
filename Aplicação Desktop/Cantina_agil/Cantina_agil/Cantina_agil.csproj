@@ -3728,7 +3728,6 @@
     <Content Include="Views\Vendas\Delete.cshtml" />
     <Content Include="Views\Vendas\Details.cshtml" />
     <Content Include="Views\Vendas\Edit.cshtml" />
-    <Content Include="Views\Vendas\Index.cshtml" />
     <Content Include="Views\Sugestaos\Create.cshtml" />
     <Content Include="Views\Sugestaos\Delete.cshtml" />
     <Content Include="Views\Sugestaos\Details.cshtml" />
@@ -3742,6 +3741,7 @@
     <Content Include="Views\Log\AlterarSenha.cshtml" />
     <Content Include="Views\Vendas\Pdv.cshtml" />
     <Content Include="Views\Shared\_LayoutVenda.cshtml" />
+    <Content Include="Views\Vendas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,22 @@
-﻿function addProduto() {    
+﻿function PressKeyCpCodigo() {
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        $("#cpQuant").focus();
+    }
+}
+
+
+function PressKeyCpQuant() {
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+
+        addProduto();
+    }
+}
+
+function addProduto() {
     //Gravar
     var url = "/Vendas/addProduto";
 
@@ -6,7 +24,7 @@
         url: url,
         type: "post",
         datatype: "json",
-        data: { id: $("#cpCodigo").val(), valor: $("#cpValor").val() ,quant : $("#cpQuant").val() },
+        data: { id: $("#cpCodigo").val(), quant: $("#cpQuant").val() },
         success: function (data) {
             var html = 
                         "<tr>"
@@ -24,12 +42,30 @@
                             +" </td>"
                         +" </tr>"
             $("#areaLancamentos").prepend(html);
-            //mostrarProduto();
+            $("#cpCodigo").empty();
+            $("#cpQuant").empty();
+
+            atualizaTotal();
         }
     });
 }
 
+function atualizaTotal() {
+    //Gravar
+    var url = "/Vendas/PegaValorVenda";
 
+    $.ajax({
+        url: url,
+        type: "post",
+        datatype: "json",
+        success: function (data) {
+            var campo = $("#ValorTotal");
+            campo.empty();
+            campo.html("Preço Total: R$" + data.resultado);
+            //mostrarProduto();
+        }
+    });
+}
 
 
 
