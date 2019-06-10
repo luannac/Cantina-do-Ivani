@@ -19,7 +19,7 @@ namespace Cantina_agil.Controllers
         public ActionResult Pdv()
         {
             venda = new Venda();
-            return View();
+            return View(db.Produto.Where(a=> a.ativoProduto!=false));
         }
         public ActionResult addProduto(int id, int quant)
         {
@@ -45,6 +45,18 @@ namespace Cantina_agil.Controllers
         public ActionResult PegaValorVenda()
         {
             return Json(new { resultado = venda.ValorTotal() },JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult FinalizarVenda()
+        {
+            venda.RegistraVenda(false, 1);
+            return View("Pdv", "Venda");
+        }
+
+        public ActionResult CancelarVenda()
+        {
+            venda = new Venda();
+            return View("Pdv","Venda");
         }
 
         #endregion

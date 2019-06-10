@@ -39,16 +39,17 @@ namespace Cantina_agil.Models
         }
 
    
-        public string RegistraVenda(bool pago,bool aPrazo,int? idCliente)
+        public string RegistraVenda(bool aPrazo,int? idCliente)
         {
             Transacao tra = new Transacao();
             decimal transacaoValor =0;
 
-            tra.pago = pago;
+            tra.pago = false;
             tra.dataTransacao = DateTime.Now;
 
             if (!aPrazo)
             {
+                tra.pago = true;
                 tra.dataPagamento = DateTime.Now;
             }
             if (idCliente != null)

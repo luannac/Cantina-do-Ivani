@@ -219,7 +219,6 @@ C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Mv
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
 C:\Luann\Projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
-C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache
 C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
 C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
 C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\csc.exe

@@ -1,8 +1,9 @@
-﻿@model Cantina_agil.Models.Transacao
+﻿@model IEnumerable<Cantina_agil.Models.Produto>
 @{
     ViewBag.Title = "Pdv";
     Layout = "~/Views/Shared/_LayoutVenda.cshtml";
 }
+
 
 <div class="align-self-center">
     <div class="container margin-top-mob-10px">
@@ -63,29 +64,54 @@
                                 <div class="container-venda-acoes">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <a href="#" id="btnLimpar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</a>
+                                            <a href="@Url.Action("CancelarVenda","Venda")" id="btnLimpar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</a>
                                         </div>
                                         <div class="col-xs-6">
-                                            <a href="#" id="btnPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
+                                            <a href="@Url.Action("FinalizarVenda","Venda")" id="btnPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
                                         </div>
                                     </div>
                                 </div>
+                        <a href="@Url.Action("Index","Menu")">
+                            <input type="button" class="btn btn-lg font-size-13px-mob" value="Voltar Menu" />
+                        </a>
+
                             </div>
 
                         </div>
         </div>
 
 <p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Link with href
-    </a>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Button with data-target
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseProdutos" aria-expanded="false" aria-controls="collapseExample">
+        Lista Produtos
     </button>
 </p>
-<div class="collapse" id="collapseExample">
-    <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-    </div>
+<div class="collapse" id="collapseProdutos">
+    <table class="table">
+        <tr>
+            <th>
+                <label class="label-control">Código</label>
+            </th>
+            <th>
+                <label class="label-control">Nome</label>
+            </th>
+            <th>
+                <label class="label-control">Valor</label>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomeProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor)
+                </td>
+            </tr>
+        }
+        </table>
 </div>
           
