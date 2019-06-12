@@ -289,6 +289,6 @@ C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System
 C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.Razor.xml
 C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Helpers.xml
 C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Mvc.xml
-C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache
 C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
 C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache
