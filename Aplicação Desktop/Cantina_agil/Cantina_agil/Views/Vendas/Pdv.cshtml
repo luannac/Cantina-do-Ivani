@@ -22,12 +22,14 @@
             <a class="btn btn-primary" href="#" onclick="addProduto();">
                 <span class="input-group-text">Confirmar</span>
             </a>
+
             </div>
+       
                </div>
+   
                 <div class="col-xs-12 col-md-6">
 
                     <div class="container-venda height-675px-mob" >
-
 
 
                         <input data-val="true" data-val-number="The field NotaFiscalConsumidorId must be a number." data-val-required="The NotaFiscalConsumidorId field is required." id="NotaFiscalConsumidorId" name="NotaFiscalConsumidorId" type="hidden" value="230581" />
@@ -49,15 +51,14 @@
                                             </th>
                                         </tr>
                                     <tbody id="areaLancamentos" class="campodeprodutos">
-
-
-                                        <div class="campodecompra">
-
-                                            <h2 id="ValorTotal">Preço Total: 0,00</h2>
-
-                                        </div>
                                     </tbody>
+                                
                                 </table>
+                            <div class="campodecompra">
+
+                                <h2 id="ValorTotal">Preço Total: 0,00</h2>
+
+                            </div>
                         </div>
 
 
@@ -69,24 +70,23 @@
                                         <div class="col-xs-6">
                                             <a href=@Url.Action("FinalizarVenda","Venda") id="btnPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
                                         </div>
+                                        <a href="@Url.Action("Index","Menu")">
+                                            <input type="button" class="btn voltarMenu btn-lg font-size-13px-mob" value="Voltar Menu" />
+                                        </a>
                                     </div>
                                 </div>
-                        <a href="@Url.Action("Index","Menu")">
-                            <input type="button" class="btn btn-lg font-size-13px-mob" value="Voltar Menu" />
-                        </a>
-
                             </div>
-
-                        </div>
-        </div>
-
-<p>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseProdutos" aria-expanded="false" aria-controls="collapseExample">
+                </div><p>
+    <button class="btn btnLista btn-primary" type="button" data-toggle="collapse" data-target="#collapseProdutos" aria-expanded="false" aria-controls="collapseExample">
         Lista Produtos
     </button>
 </p>
+        </div>
+
+
+
 <div class="collapse" id="collapseProdutos">
-    <table class="table">
+    <table class="table table2">
         <tr>
             <th>
                 <label class="label-control">Código</label>

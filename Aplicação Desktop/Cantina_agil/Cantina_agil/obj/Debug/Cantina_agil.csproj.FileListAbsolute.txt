@@ -255,3 +255,40 @@ C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.He
 C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Mvc.xml
 C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
 C:\Luann\Cantina\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\csc.exe
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\System.Collections.Immutable.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\System.Reflection.Metadata.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\vbc.exe
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\VBCSCompiler.exe
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\roslyn\VBCSCompiler.exe.config
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Cantina_agil.dll.config
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Cantina_agil.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Cantina_agil.pdb
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\EntityFramework.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\EntityFramework.SqlServer.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Microsoft.Web.Infrastructure.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Helpers.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Mvc.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Razor.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.Deployment.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.Razor.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\EntityFramework.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\EntityFramework.SqlServer.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Razor.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.Deployment.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Webpages.Razor.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Helpers.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\bin\System.Web.Mvc.xml
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.csprojResolveAssemblyReference.cache
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.dll
+C:\igor marques\projeto\Aplicação Desktop\Cantina_agil\Cantina_agil\obj\Debug\Cantina_agil.pdb
