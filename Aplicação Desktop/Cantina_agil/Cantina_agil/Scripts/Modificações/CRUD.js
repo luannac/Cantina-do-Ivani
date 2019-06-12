@@ -11,8 +11,10 @@ function PressKeyCpQuant() {
     if (event.keyCode === 13) {
         // Cancel the default action, if needed
         event.preventDefault();
-
         addProduto();
+        $("#cpQuant").value = "";
+        $("#cpCodigo").value = "";
+        $("#cpCodigo").focus();
     }
 }
 

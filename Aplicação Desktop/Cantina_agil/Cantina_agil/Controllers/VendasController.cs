@@ -18,6 +18,9 @@ namespace Cantina_agil.Controllers
         #region Tela Vendas =====================================================
         public ActionResult Pdv()
         {
+            if (Session["User.id"] == null)
+                return RedirectToAction("Logar", "Log");
+
             venda = new Venda();
             return View(db.Produto.Where(a=> a.ativoProduto!=false));
         }

@@ -111,7 +111,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href=@Url.Action("Index","Sugestoes") id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href=@Url.Action("Index","Sugestaos") id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                             </a>
                         </li>
@@ -120,7 +120,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">USUARIO</span>      
+                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Session["User.Name"]</span>      
                             </a>
                         </li>
                     </ul>
