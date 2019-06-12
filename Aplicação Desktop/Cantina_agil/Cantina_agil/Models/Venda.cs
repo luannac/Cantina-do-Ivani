@@ -64,7 +64,8 @@ namespace Cantina_agil.Models
                 EntradaSaida entr = new EntradaSaida(
                     DateTime.Now,
                     proI.quantidade,
-                    tra.idTransacao);
+                    tra.idTransacao,
+                    proI);
 
                 db.EntradaSaida.Add(entr);
             }

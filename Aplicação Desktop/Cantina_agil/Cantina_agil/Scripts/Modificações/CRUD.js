@@ -12,8 +12,8 @@ function PressKeyCpQuant() {
         // Cancel the default action, if needed
         event.preventDefault();
         addProduto();
-        $("#cpQuant").value = "";
-        $("#cpCodigo").value = "";
+        $("#cpQuant") = "";
+        $("#cpCodigo") = "";
         $("#cpCodigo").focus();
     }
 }
