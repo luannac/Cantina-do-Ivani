@@ -5,60 +5,62 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Compra a Prazo</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href=@Url.Action("Create","Vendas") class="btn btn-primary" data-toggle="button">
+        Criar um Novo
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.valorTransacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dataTransacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pago)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dataPagamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ativoTransacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.valorTransacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dataTransacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pago)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dataPagamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ativoTransacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cliente.nomeCliente)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Vendas", new { id=item.idTransacao }) |
-            @Html.ActionLink("Details", "Vendas", new { id=item.idTransacao }) |
-            @Html.ActionLink("Delete", "Vendas", new { id=item.idTransacao })
-        </td>
-    </tr>
-}
-
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                <label>Valor</label>
+            </th>
+            <th>
+                <label>Data da transação</label>
+            </th>
+            <th>
+                <label>Data de Pagamento</label>
+            </th>
+            <th>
+                <label>Nome do Cliente</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+            @foreach (var item in Model) {   
+                <tr>            
+                <td>
+                    
+                    @Html.DisplayFor(modelItem => item.valorTransacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dataTransacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dataPagamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.nomeCliente)
+                </td>
+                <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Edit", "Sangrias", new { id = item.idTransacao })>
+                            Editar
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Details", "Sangrias", new { id = item.idTransacao })>
+                            Detalhes
+                        </a>
+                        <a type="button" data-toggle="button" class="btn btn-primary" autocomplete="off" href=@Url.Action("Delete", "Sangrias", new { id = item.idTransacao })>
+                            Deletar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+  
 </table>
+

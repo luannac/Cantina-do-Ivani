@@ -66,10 +66,10 @@
                                     <hr />
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <a href=@Url.Action("CancelarVenda","Venda") id="btnLimpar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</a>
+                                            <a href=@Url.Action("CancelarVenda","Venda") id="btnLimpar"   data-toggle="modal" data-target="#modalCancelar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</a>
                                         </div>
                                         <div class="col-xs-6">
-                                            <a href=@Url.Action("FinalizarVenda","Venda") id="btnPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
+                                            <a href=@Url.Action("FinalizarVenda","Venda") id="btnPagamento" data-toggle="modal" data-target="#modalPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
                                         </div>
                                         
                                     </div>
@@ -115,27 +115,37 @@
         </table>
 </div>
 
-<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</a>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal pagamento -->
+<div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="">
+                <h5 class="modal-title" id="exampleModalLabel">Compra feita com Sucesso!</h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">ok</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- Modal cancelar -->
+<div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="">
+                <h5 class="modal-title" id="exampleModalLabel">Cancelado com Sucesso!</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     
           
