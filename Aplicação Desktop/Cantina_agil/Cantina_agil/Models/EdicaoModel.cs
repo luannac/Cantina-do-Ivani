@@ -11,7 +11,7 @@ namespace Cantina_agil.Models
 
     public partial class EntradaSaida
     {
-        public EntradaSaida(DateTime now, int? quantidade, int idTransacao,Produto prod)
+        public EntradaSaida(DateTime now, int? quantidade, int idTransacao)
         {
             this.dataEntradaSaida = now;
             if (quantidade == null)
@@ -19,7 +19,6 @@ namespace Cantina_agil.Models
                 this.quantEntradaSaida = (int)quantidade;
             }
             this.id_Transacao = idTransacao;
-            this.id_Produto = prod.idProduto;
         }
     }
 

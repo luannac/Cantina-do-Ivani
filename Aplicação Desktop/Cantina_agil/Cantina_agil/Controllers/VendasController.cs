@@ -33,7 +33,7 @@ namespace Cantina_agil.Controllers
 
             return Json(new
             {
-                id = id,
+                id = prod.idProduto,
                 nome = prod.nomeProduto,
                 valor = prod.valor,
                 quant = prod.quantidade
@@ -53,20 +53,13 @@ namespace Cantina_agil.Controllers
         public ActionResult FinalizarVenda()
         {
             venda.RegistraVenda(false, 1);
-            venda = new Venda();
-            return View("Pdv", db.Produto.Where(a => a.ativoProduto != false));
+            return RedirectToAction("Pdv", "Vendas");
         }
 
         public ActionResult CancelarVenda()
         {
             venda = new Venda();
-            return View("Pdv", db.Produto.Where(a => a.ativoProduto != false));
-        }
-
-        public ActionResult Voltar()
-        {
-            venda = null;
-            return View("Index","Menu");
+            return RedirectToAction("Pdv","Vendas");
         }
 
         #endregion

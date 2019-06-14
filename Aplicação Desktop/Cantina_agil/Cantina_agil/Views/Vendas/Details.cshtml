@@ -11,48 +11,25 @@
     <h4>Transação</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.valorTransacao)
-        </dt>
-
+        
         <dd>
-            @Html.DisplayFor(model => model.valorTransacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.dataTransacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.dataTransacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.pago)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pago)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.dataPagamento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.dataPagamento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cliente.nomeCliente)
+            <label>Valor da Transação : </label>  @Html.DisplayFor(model => model.valorTransacao)
         </dd>
 
         <dd>
-            @Html.DisplayFor(model => model.EntradaSaida.idEntradaSaida)
+            <label>Data da Transação: </label>  @Html.DisplayFor(model => model.dataTransacao)
+        </dd>
+
+        <dd>
+            <label>Pago: </label>  @Html.DisplayFor(model => model.pago)
+        </dd>
+
+        <dd>
+            <label>Data do Pagamento: </label>  @Html.DisplayFor(model => model.dataPagamento)
+        </dd>
+
+        <dd>
+            <label>Nome do Cliente: </label> @Html.DisplayFor(model => model.Cliente.nomeCliente)
         </dd>
 
     </dl>

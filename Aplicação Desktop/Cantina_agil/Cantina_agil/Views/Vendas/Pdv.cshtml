@@ -66,11 +66,12 @@
                                     <hr />
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <a href=@Url.Action("CancelarVenda","Vendas") id="btnLimpar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</a>
+                                            <button id="btnLimpar"   data-toggle="modal" data-target="#modalCancelar" class="btn btn-danger btn-lg font-size-13px-mob">Cancelar</button>
                                         </div>
                                         <div class="col-xs-6">
-                                            <a href=@Url.Action("FinalizarVenda","Vendas") id="btnPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</a>
+                                            <button id="btnPagamento" data-toggle="modal" data-target="#modalPagamento" class="btn btn-success btn-lg  font-size-13px-mob"> Pagamento</button>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -113,4 +114,38 @@
         }
         </table>
 </div>
+
+<!-- Modal pagamento -->
+<div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="">
+                <h5 class="modal-title" id="exampleModalLabel">Finalizar?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <a href=@Url.Action("FinalizarVenda","Vendas") class="btn btn-primary">Ok</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal cancelar -->
+<div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="">
+                <h5 class="modal-title" id="exampleModalLabel">Cancelado com Sucesso!</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <a href=@Url.Action("CancelarVenda","Vendas") type="button" class="btn btn-primary">ok</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
           
